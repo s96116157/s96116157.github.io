@@ -1,6 +1,7 @@
 function get_json() {
     $.getJSON('js/json/info.json', function (data) {
         $.each(data.info, function (i, emp) {
+            console.log(emp.card);
         });
     }).error(function () {
         console.log('error');
