@@ -10,37 +10,39 @@
 </head>
 
 <body style="background-image: url(image/image_600.jpg)">
-    <div class="container-fluid" id="app">
-        <div style="height:50px"></div>
-        <div class="row">
-            <div class="col-md-12">
-                <img src="image/Face.jpg" class="rounded-circle img-thumbnail mx-auto d-block" style="height:200px">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center mx-auto d-block" style="color:white">
-                    自然塔羅
-                </h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <button type="button" @click.once="prompt" class="mx-auto d-block btn btn-dark">
-                    <h3>${ msg }</h3>
-                </button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div style="width: 50px;">
-                    <h1></h1>
+    <header style="height: 50px;"></header>
+    <main>
+        <div class="container-fluid" id="app">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="image/Face.jpg" class="rounded-circle img-thumbnail mx-auto d-block" style="height:200px">
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center mx-auto d-block" style="color:white">
+                        自然塔羅
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" @click.once="prompt" class="mx-auto d-block btn btn-dark">
+                        <h3>${ msg }</h3>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="width: 50px;">
+                        <h1></h1>
+                    </div>
+                </div>
+            </div>
+            <v-img></v-img>
         </div>
-        <v-img></v-img>
-    </div>
-
+    </main>
+    <footer class="bd-footer text-muted" style="height: 50px;"></footer>
     <script src="js/jquery.min.js"></script>
     <script src="js/vue.js"></script>
     <script src="js/bootstrap.min.js"></script>
