@@ -10,7 +10,7 @@
 </head>
 
 <body style="background-image: url(image/image_600.jpg)">
-    <div class="container-fluid">
+    <div class="container-fluid" id="app">
         <div style="height:50px"></div>
         <div class="row">
             <div class="col-md-12">
@@ -24,7 +24,33 @@
                 </h1>
             </div>
         </div>
-        <div id="app">
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" @click.once="prompt" class="mx-auto d-block btn btn-dark">
+                    <h3>${ msg }</h3>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div style="width: 50px;">
+                    <h1></h1>
+                </div>
+            </div>
+        </div>
+        <div class="row" v-show="isShow">
+            <div class="col-md-3">
+                <img src="image/A_000.png" class="mx-auto d-block" style="width: 70%;">
+            </div>
+            <div class="col-md-3">
+                <img src="image/A_001.png" class="mx-auto d-block" style="width: 70%;">
+            </div>
+            <div class="col-md-3">
+                <img src="image/A_002.png" class="mx-auto d-block" style="width: 70%;">
+            </div>
+            <div class="col-md-3">
+                <img src="image/A_003.png" class="mx-auto d-block" style="width: 70%;">
+            </div>
         </div>
     </div>
 
