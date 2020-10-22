@@ -1,0 +1,34 @@
+{
+    "info": [
+        {
+            "card": "A_000",
+            "title": "LET IT GO",
+            "txt": "放下吧！"
+        },
+        {
+            "card": "A_001",
+            "title": "DO IT EARLY",
+            "txt": "及早開始"
+        },
+        {
+            "card": "A_002",
+            "title": "KNOW WHEN IT'S TIME TO GO",
+            "txt": "要知道何時該走人"
+        },
+        {
+            "card": "A_003",
+            "title": "START BY BUILDING A NEST",
+            "txt": "首先，先把你的豬窩整理好！"
+        },
+        {
+            "card": "A_004",
+            "title": "ASK YOUR MOTHER",
+            "txt": "去問你媽"
+        },
+        {
+            "card": "A_005",
+            "title": "DON'T BET ON IT",
+            "txt": "不要指望它"
+        }
+    ]
+}
