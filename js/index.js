@@ -28,6 +28,7 @@ var vm = new Vue({
             });
         },
         change_info() {
+            this.msg = 'onclick';   
         }
     }
 });
@@ -36,7 +37,8 @@ function get_img() {
     x = '<div>' +
         '<div class="row">' +
         '<div class="col-md-3"></div>' +
-        '<div class="col-6 col-md-3"><img src="image/' + today_card[0] + '.png" class="mx-auto d-block" style="width: 80%;" data-toggle="modal" data-target="#exampleModalCenter" type="button"></div>' +
+        '<div class="col-6 col-md-3" type="button" data-toggle="modal" data-target="#show_card_info">'+
+        '<img src="image/' + today_card[0] + '.png" class="mx-auto d-block" style="width: 80%;"></div>' +
         '<div class="col-6 col-md-3"><img src="image/' + today_card[1] + '.png" class="mx-auto d-block" style="width: 80%;"></div>' +
         '<div class="col-md-3"></div>' +
         '</div>' +
