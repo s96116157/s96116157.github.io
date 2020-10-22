@@ -9,11 +9,25 @@
 }
 
 body{
-    background-color: #000; 
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-attachment: fixed;      
-    -moz-background-size: cover;
+    background-image: url(../image/image_600.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    -webkit-background-size: cover !important; 
+    -moz-background-size: cover !important; 
+    -o-background-size: cover; 
+    background-attachment:fixed;
+    z-index: -1;
+}
+body:before{
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: inherit;
+    -webkit-background-size: cover!important;
     -o-background-size: cover;
-    background-size: cover;     
+    background-size: cover!important;
 }
