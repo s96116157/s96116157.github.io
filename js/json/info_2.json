@@ -3,11 +3,16 @@
         "午餐吃什麼？",
         "明天會放晴嗎？",
         "什麼時候會脫單？",
+        "該不該告白？",
+        "我應該要跳槽嗎？",
         "我該離職嗎？",
         "我該跟她（他）交往嗎？",
         "該分手嗎？",
         "該不該出國？",
+        "要繼續升學嗎？",
         "明天要請假嗎？",
+        "晚餐吃什麼？",
+        "等一下要吃什麼？",
         "什麼時候才會世界末日？"
     ],
     "card": [
@@ -19,6 +24,14 @@
         "A_005"
     ],
     "info": [
+        {
+            "title": "BETTER TO WAIT",
+            "txt": "最好等一等"
+        }, 
+        {
+            "title": "YOU WILL NEED TO ACCOMMODATE",
+            "txt": "你得配合環境行事"
+        },
         {
             "title": "LET IT GO",
             "txt": "放下吧！"
@@ -42,6 +55,22 @@
         {
             "title": "DON'T BET ON IT",
             "txt": "不要指望它"
+        },
+        {
+            "title": "YOU COULD BE IN OVER YOUR HEAD",
+            "txt": "你可能會陷入麻煩難以脫身"
+        },
+        {
+            "title": "IT WILL SUSTAIN YOU",
+            "txt": "救兵會出現"
+        },
+        {
+            "title": "KEEP IT TO YOURSELF",
+            "txt": "有些事自己知道就好"
+        },
+        {
+            "title": "HOLD ON",
+            "txt": "齁住阿～～～！！！"
         }
     ]
 }
