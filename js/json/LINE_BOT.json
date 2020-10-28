@@ -1,0 +1,22 @@
+{
+    "type": "template",
+    "altText": "this is a buttons template",
+    "template": {
+        "type": "buttons",
+        "imageBackgroundColor": "#000000",
+        "title": "選擇",
+        "text": "請輸入您想算的類型",
+        "actions": [
+            {
+                "type": "message",
+                "label": "感情",
+                "text": "我想算感情"
+            },
+            {
+                "type": "message",
+                "label": "事業",
+                "text": "我想算事業"
+            }
+        ]
+    }
+}
