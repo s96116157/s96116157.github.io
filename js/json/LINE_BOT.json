@@ -16,6 +16,11 @@
                 "type": "message",
                 "label": "事業",
                 "text": "我想算事業"
+            },
+            {
+                "type": "message",
+                "label": "學業",
+                "text": "我想算事業"
             }
         ]
     }
