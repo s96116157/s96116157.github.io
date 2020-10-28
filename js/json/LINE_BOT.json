@@ -14,7 +14,7 @@
             "text": "請選擇您想占卜的項目",
             "actions": [
                 {
-                    "type": "message",
+                    "type": "postback",
                     "label": "戀愛占卜",
                     "text": "",
                     "data": "塔羅"
