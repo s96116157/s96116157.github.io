@@ -16,7 +16,8 @@
                 {
                     "type": "message",
                     "label": "戀愛占卜",
-                    "text": "戀愛占卜"
+                    "text": "",
+                    "data": "塔羅"
                 },
                 {
                     "type": "message",
