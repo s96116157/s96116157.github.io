@@ -3,24 +3,25 @@
     "altText": "this is a buttons template",
     "template": {
         "type": "buttons",
+        "thumbnailImageUrl": "PROVIDE_URL_FROM_YOUR_SERVER",
         "imageBackgroundColor": "#000000",
-        "title": "選擇",
-        "text": "請輸入您想算的類型",
+        "title": "占卜項目",
+        "text": "請選擇您想占卜的項目",
         "actions": [
             {
                 "type": "message",
-                "label": "感情",
-                "text": "我想算感情"
+                "label": "戀愛占卜",
+                "text": "戀愛占卜"
             },
             {
                 "type": "message",
-                "label": "事業",
-                "text": "我想算事業"
+                "label": "運勢占卜",
+                "text": "運勢占卜"
             },
             {
                 "type": "message",
-                "label": "學業",
-                "text": "我想算事業"
+                "label": "每日占卜",
+                "text": "每日占卜"
             }
         ]
     }
