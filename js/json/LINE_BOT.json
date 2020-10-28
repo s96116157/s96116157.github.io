@@ -1,28 +1,34 @@
-{
-    "type": "template",
-    "altText": "this is a buttons template",
-    "template": {
-        "type": "buttons",
-        "thumbnailImageUrl": "https://s96116157.github.io/image/ROBOT.jpg",
-        "imageBackgroundColor": "#000000",
-        "title": "占卜項目",
-        "text": "請選擇您想占卜的項目",
-        "actions": [
-            {
-                "type": "message",
-                "label": "戀愛占卜",
-                "text": "戀愛占卜"
-            },
-            {
-                "type": "message",
-                "label": "運勢占卜",
-                "text": "運勢占卜"
-            },
-            {
-                "type": "message",
-                "label": "每日占卜",
-                "text": "每日占卜"
-            }
-        ]
+[
+    {
+        "type": "text",
+        "text": "Hi. 我是Clio \n自然塔羅是以牌卡占卜和大家分享：人生哲學、心靈成長、運勢解析\n沒有個人占卜、收費服務\n️除了塔羅和閒聊以外，偶爾會天降趣味小測驗\n單純想和大家分享塔羅的有趣，一起開心互動\n如果想算塔羅的話請輸入「塔羅」"
+    },
+    {
+        "type": "template",
+        "altText": "this is a buttons template",
+        "template": {
+            "type": "buttons",
+            "thumbnailImageUrl": "https://s96116157.github.io/image/ROBOT.jpg",
+            "imageBackgroundColor": "#000000",
+            "title": "占卜項目",
+            "text": "請選擇您想占卜的項目",
+            "actions": [
+                {
+                    "type": "message",
+                    "label": "戀愛占卜",
+                    "text": "戀愛占卜"
+                },
+                {
+                    "type": "message",
+                    "label": "運勢占卜",
+                    "text": "運勢占卜"
+                },
+                {
+                    "type": "message",
+                    "label": "每日占卜",
+                    "text": "每日占卜"
+                }
+            ]
+        }
     }
-}
+]
