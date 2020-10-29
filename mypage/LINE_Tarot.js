@@ -14,17 +14,12 @@ function doPost(e) {
         return;
     }
     var userType = msg.events[0].type;
-    console.log('============= userType =====================');
-    console.log(userType);
-    console.log('============================================');
 
     switch (userType) {
         case 'follow':
-            console.log('Followed this bot');
-            return_txt = json_txt[0];
-            sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+            sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, json_txt[0], json_txt[1]);
         case 'unfollow':
-            return console.log('Unfollowed this bot');
+            return;
         case 'message':
             userMessage = msg.events[0].message.text;
             if (userMessage.indexOf('塔羅') != -1) {
@@ -33,7 +28,7 @@ function doPost(e) {
             else {
                 return_txt = json_txt[1];
             }
-            sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+            sendMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             return;
         case 'postback':
             userMessage = msg.events[0].postback.data;
@@ -46,7 +41,14 @@ function doPost(e) {
                     "originalContentUrl": "https://s96116157.github.io/image/A_00" + num + ".png",
                     "previewImageUrl": "https://s96116157.github.io/image/A_00" + num + ".png"
                 };
-                sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+
+                response = UrlFetchApp.fetch('https://s96116157.github.io/js/json/info.json'); // get feed
+                var info_txt = JSON.parse(response.getContentText()); //
+                var txt_2 = { "type": "text", "text": info_txt['info'][0]['txt'] };
+
+                sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt, txt_2)
+                //sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                console.log('============== END =================');
             }
             return;
     }
@@ -56,7 +58,7 @@ function doPost(e) {
 }
 
 //傳送訊息給使用者
-function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt) {
+function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1, txt_2) {
     var url = 'https://api.line.me/v2/bot/message/reply';
     UrlFetchApp.fetch(url, {
         "headers": {
@@ -66,7 +68,22 @@ function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt) {
         "method": "post",
         "payload": JSON.stringify({
             "replyToken": replyToken,
-            "messages": [return_txt],
+            "messages": [txt_1, txt_2],
+        }),
+    });
+}
+
+function sendMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1) {
+    var url = 'https://api.line.me/v2/bot/message/reply';
+    UrlFetchApp.fetch(url, {
+        "headers": {
+            "Content-Type": "application/json; charset=UTF-8",
+            "Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN,
+        },
+        "method": "post",
+        "payload": JSON.stringify({
+            "replyToken": replyToken,
+            "messages": [txt_1],
         }),
     });
 }
