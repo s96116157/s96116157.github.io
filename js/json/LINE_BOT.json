@@ -8,11 +8,39 @@
         "text": "如果想算塔羅的話請輸入\n「塔羅」\n將會為您服務哦！"
     },
     {
+        "type": "template",
+        "altText": "this is a buttons template",
+        "template": {
+            "type": "buttons",
+            "thumbnailImageUrl": "https://s96116157.github.io/image/ROBOT.jpg",
+            "imageBackgroundColor": "#000000",
+            "title": "占卜項目",
+            "text": "請選擇您想占卜的項目",
+            "actions": [
+                {
+                    "type": "postback",
+                    "label": "戀愛占卜",
+                    "data": "戀愛占卜"
+                },
+                {
+                    "type": "postback",
+                    "label": "運勢占卜",
+                    "data": "運勢占卜"
+                },
+                {
+                    "type": "postback",
+                    "label": "每日占卜",
+                    "data": "每日占卜"
+                }
+            ]
+        }
+    },
+    {
         "type": "bubble",
         "direction": "ltr",
         "hero": {
             "type": "image",
-            "url": "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
+            "url": "https://s96116157.github.io/image/ROBOT.jpg",
             "size": "full",
             "aspectRatio": "1.51:1",
             "aspectMode": "fit"
