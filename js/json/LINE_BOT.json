@@ -14,12 +14,7 @@
             "url": "https://s96116157.github.io/image/ROBOT.jpg",
             "size": "full",
             "aspectRatio": "20:13",
-            "aspectMode": "cover",
-            "action": {
-                "type": "uri",
-                "label": "Line",
-                "uri": "https://linecorp.com/"
-            }
+            "aspectMode": "cover"
         },
         "body": {
             "type": "box",
