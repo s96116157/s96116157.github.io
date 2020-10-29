@@ -16,17 +16,17 @@
                 {
                     "type": "postback",
                     "label": "戀愛占卜",
-                    "data": "塔羅"
+                    "data": "戀愛占卜"
                 },
                 {
-                    "type": "message",
+                    "type": "postback",
                     "label": "運勢占卜",
-                    "text": "運勢占卜"
+                    "data": "運勢占卜"
                 },
                 {
-                    "type": "message",
+                    "type": "postback",
                     "label": "每日占卜",
-                    "text": "每日占卜"
+                    "data": "每日占卜"
                 }
             ]
         }
