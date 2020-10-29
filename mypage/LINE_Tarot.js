@@ -13,35 +13,43 @@ function doPost(e) {
     if (typeof replyToken === 'undefined') {
         return;
     }
-
     var userType = msg.events[0].type;
     console.log('============= userType =====================');
     console.log(userType);
     console.log('============================================');
 
-    if (userType == 'message') {
-        userMessage = msg.events[0].message.text;
-        if (userMessage.indexOf('塔羅') != -1) {
-            return_txt = json_txt[1];
-        }
-        else {
+    switch (userType) {
+        case 'follow':
+            console.log('Followed this bot');
             return_txt = json_txt[0];
-        }
+            sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+        case 'unfollow':
+            return console.log('Unfollowed this bot');
+        case 'message':
+            userMessage = msg.events[0].message.text;
+            if (userMessage.indexOf('塔羅') != -1) {
+                return_txt = json_txt[2];
+            }
+            else {
+                return_txt = json_txt[1];
+            }
+            sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+            return;
+        case 'postback':
+            userMessage = msg.events[0].postback.data;
+            console.log(userMessage);
+            console.log(userMessage.indexOf('占卜'));
+            if (userMessage.indexOf('占卜') != -1) {
+                var num = getRandom(0, 9);
+                return_txt = {
+                    "type": "image",
+                    "originalContentUrl": "https://s96116157.github.io/image/A_00" + num + ".png",
+                    "previewImageUrl": "https://s96116157.github.io/image/A_00" + num + ".png"
+                };
+                sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+            }
+            return;
     }
-    sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-}
-if (userType == 'postback') {
-    userMessage = msg.events[0].postback.text;
-    if (userMessage.indexOf('塔羅') != -1) {
-        var num = getRandom(0, 9);
-        return_txt = {
-            "type": "image",
-            "originalContentUrl": "https://s96116157.github.io/image/A_00" + num + ".png",
-            "previewImageUrl": "https://s96116157.github.io/image/A_000.png"
-        };
-        sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-    }
-}
     //==========================================================================================
     //sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
     //==========================================================================================
