@@ -3,6 +3,38 @@ var aUrl = "https://s96116157.github.io/js/json/LINE_BOT.json";
 var response = UrlFetchApp.fetch(aUrl); // get feed
 var json_txt = JSON.parse(response.getContentText()); //
 
+var txt_3 = {
+    "type": "flex",
+    "altText": "this is a flex message",
+    "contents":
+    {
+        "type": "bubble",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "md",
+            "contents": [
+
+                {
+                    "type": "text",
+                    "text": "hello"
+                },
+
+                {
+                    "type": "button",
+                    "style": "primary",
+                    "action": {
+                        "type": "uri",
+                        "label": "Primary style button",
+                        "uri": "https://example.com"
+                    }
+                }
+
+            ]
+        }
+    }
+};
+
 function doPost(e) {
     var msg = JSON.parse(e.postData.contents);
     var return_txt = '';
@@ -18,22 +50,23 @@ function doPost(e) {
     switch (userType) {
         case 'follow':
             sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, json_txt[0], json_txt[1]);
+            return;
         case 'unfollow':
             return;
         case 'message':
             userMessage = msg.events[0].message.text;
             if (userMessage.indexOf('塔羅') != -1) {
-                return_txt = json_txt[2];
+                //return_txt = json_txt[3];   
+                return_txt = txt_3;
+                sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             }
             else {
                 return_txt = json_txt[1];
+                sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt, '');
             }
-            sendMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             return;
         case 'postback':
             userMessage = msg.events[0].postback.data;
-            console.log(userMessage);
-            console.log(userMessage.indexOf('占卜'));
             if (userMessage.indexOf('占卜') != -1) {
                 var num = getRandom(0, 9);
                 return_txt = {
@@ -48,7 +81,6 @@ function doPost(e) {
 
                 sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt, txt_2)
                 //sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-                console.log('============== END =================');
             }
             return;
     }
@@ -59,6 +91,11 @@ function doPost(e) {
 
 //傳送訊息給使用者
 function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1, txt_2) {
+    if (txt_2 == '') {
+        var msg = [txt_1];
+    } else {
+        var msg = [txt_1, txt_2];
+    }
     var url = 'https://api.line.me/v2/bot/message/reply';
     UrlFetchApp.fetch(url, {
         "headers": {
@@ -68,22 +105,22 @@ function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1, txt_2) {
         "method": "post",
         "payload": JSON.stringify({
             "replyToken": replyToken,
-            "messages": [txt_1, txt_2],
+            "messages": msg,
         }),
     });
 }
 
-function sendMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1) {
+function sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, msg) {
     var url = 'https://api.line.me/v2/bot/message/reply';
     UrlFetchApp.fetch(url, {
         "headers": {
-            "Content-Type": "application/json; charset=UTF-8",
+            "Content-Type": "application/json",
             "Authorization": "Bearer " + CHANNEL_ACCESS_TOKEN,
         },
         "method": "post",
         "payload": JSON.stringify({
             "replyToken": replyToken,
-            "messages": [txt_1],
+            "messages": [msg],
         }),
     });
 }
