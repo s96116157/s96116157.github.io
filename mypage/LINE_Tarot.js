@@ -3,68 +3,20 @@ var aUrl = "https://s96116157.github.io/js/json/LINE_BOT.json";
 var response = UrlFetchApp.fetch(aUrl); // get feed
 var json_txt = JSON.parse(response.getContentText()); //
 
-var txt_3 = {
-    "type": "flex",
-    "altText": "this is a flex message",
-    "contents":
-    {
-        "type": "carousel",
-        "contents": [{
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "md",
-                "contents": [
+//=======================================================================
+var spreadSheetID = "1X5Mtln-MYBhyBRn0RveNOXCkb32A4VTzht1AIGkNvdU";
+var spreadSheet = SpreadsheetApp.openById(spreadSheetID);
+var sheet = spreadSheet.getActiveSheet();
+var lastRow = sheet.getLastRow();
+var lastColumn = sheet.getLastColumn();
+var sheetData = sheet.getSheetValues(1, 1, lastRow, lastColumn);
+//=======================================================================
 
-                    {
-                        "type": "text",
-                        "text": "hello"
-                    },
-
-                    {
-                        "type": "button",
-                        "style": "primary",
-                        "action": {
-                            "type": "uri",
-                            "label": "Primary style button",
-                            "uri": "https://example.com"
-                        }
-                    }
-
-                ]
-            }
-        }, {
-            "type": "bubble",
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "md",
-                "contents": [
-
-                    {
-                        "type": "text",
-                        "text": "hello"
-                    },
-
-                    {
-                        "type": "button",
-                        "style": "primary",
-                        "action": {
-                            "type": "uri",
-                            "label": "Primary style button",
-                            "uri": "https://example.com"
-                        }
-                    }
-
-                ]
-            }
-        }]
-    }
-};
+var txt_3 = {};
 
 function doPost(e) {
     var msg = JSON.parse(e.postData.contents);
+    var clientID = msg.events[0].source.userId;
     var return_txt = '';
     var userMessage = '';
     console.log('============ msg.events[0] ============');
@@ -74,7 +26,7 @@ function doPost(e) {
         return;
     }
     var userType = msg.events[0].type;
-
+    getUserAnswer(clientID, '');
     switch (userType) {
         case 'follow':
             sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, json_txt[0], json_txt[1]);
@@ -83,7 +35,7 @@ function doPost(e) {
         case 'message':
             userMessage = msg.events[0].message.text;
             if (userMessage.indexOf('塔羅') != -1) {
-                return_txt = json_txt[3];   
+                return_txt = json_txt[3];
                 //return_txt = txt_3;
                 sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             }
@@ -155,6 +107,37 @@ function sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, msg) {
             "messages": [msg],
         }),
     });
+}
+
+//判斷使用者回答到第幾題
+function getUserAnswer(clientID, clientMessage) {
+
+    var returnData = [];
+    for (var i = lastRow - 1; i >= 0; i--) {
+        if (sheetData[i][0] == clientID && sheetData[i][lastColumn - 1] == "") {
+            for (var j = 1; j <= lastColumn - 1; j++) {
+                if (sheetData[i][j] == "") { break; }
+            }
+            sheet.getRange(i + 1, j + 1).setValue(clientMessage);
+            //如果使用者已經回答了最後一題，就把完成時間填上。不然就送出下一題給使用者
+            if (j + 2 == lastColumn) {
+                sheet.getRange(i + 1, lastColumn).setValue(Date());
+                returnData = [i + 1, 0];
+            }
+            else {
+                returnData = [i + 1, j + 2];
+            }
+            return returnData;
+            break;
+        }
+    }
+    //如果使用者還沒有回答過任何資料，就新增加一列在最後，把使用者ID輸入並開始送出題目
+    sheet.insertRowAfter(lastRow);
+    sheet.getRange(lastRow + 1, 1).setValue(clientID);
+    returnData = [lastRow + 1, 2];
+    console.log('=================== returnData ==================');
+    console.log(returnData);
+    return returnData;
 }
 
 //產生min到max之間的亂數

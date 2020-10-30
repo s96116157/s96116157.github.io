@@ -1,34 +1,56 @@
-{
-    "insertId": "-3lpuklf3ipj0t",
-    "jsonPayload": {
-        "context": {
-            "reportLocation": {
-                "functionName": "sendMessage",
-                "filePath": "程式碼",
-                "lineNumber": 106
+[
+    {
+        "insertId": "-ool5pyf1la0sw",
+        "jsonPayload": {
+            "serviceContext": {
+                "service": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
+                "version": "GS:web"
+            },
+            "message": "{ type: 'message',\n  replyToken: '8b142f0ff55f4dedb5179dc7887e0ea5',\n  source: { userId: 'U25aa75e3ba330989f85018b2b0bbcef7', type: 'user' },\n  timestamp: 1604039976773,\n  mode: 'active',\n  message: { type: 'text', id: '12942421912645', text: '塔羅' } }"
+        },
+        "resource": {
+            "type": "app_script_function",
+            "labels": {
+                "project_id": "x-casing-138623",
+                "function_name": "",
+                "invocation_type": "custom function"
             }
         },
-        "serviceContext": {
-            "service": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
-            "version": "55"
-        },
-        "message": "Exception: https://api.line.me のリクエストに失敗しました（エラー: 400）。サーバー応答の一部: {\"message\":\"The request body has 1 error(s)\",\"details\":[{\"message\":\"Must be one of the following values: [text, image, video, audio, location, stic...（応答の全文を見るには muteHttpExceptions オプションを使用してください）\n    at sendMessage(程式碼:106:17)\n    at doPost(程式碼:59:13)"
-    },
-    "resource": {
-        "type": "app_script_function",
+        "timestamp": "2020-10-30T06:39:37.997Z",
+        "severity": "DEBUG",
         "labels": {
-            "invocation_type": "web app",
-            "project_id": "x-casing-138623",
-            "function_name": "doPost"
-        }
+            "script.googleapis.com/project_key": "MT_ORbAu973PS3g5puHjzXRLoNXZsg87s",
+            "script.googleapis.com/deployment_id": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
+            "script.googleapis.com/process_id": "EAEA1GOzFLJsF6D0qe-Mv55ChWNMMIPjP-xRBKAbMDNU0yDaFfyA2ViSADcg-twV3TbvB1eXYqfXqKkSw20C5gil8ZQfsnUTWGIBA8Wj7nPg2Lu6GWZPBrpq5esZ9mUWQY9GFmh_P0RPyM4hbahXwahiylhAI16MnNcIMnA7vnwcM0F-jyPwhy4_FdCAYNLd3Fz0KrTlj5uCCbBA3u6rSiTjFCqD6Dxq0vikouqWJ3idPtKw8JVn5seGOV6tNlaSAhCcb6wKgFd0VmB70GTaWCdhMb-hrAg"
+        },
+        "logName": "projects/x-casing-138623/logs/script.googleapis.com%2Fconsole_logs",
+        "receiveTimestamp": "2020-10-30T06:39:38.882090714Z"
     },
-    "timestamp": "2020-10-29T10:48:22.209Z",
-    "severity": "ERROR",
-    "labels": {
-        "script.googleapis.com/project_key": "MT_ORbAu973PS3g5puHjzXRLoNXZsg87s",
-        "script.googleapis.com/deployment_id": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
-        "script.googleapis.com/process_id": "EAEA1GOwik4d3l8XgELnvxQIzt9IzLXzPRCshtCiGX9hXLWoWryFFzyzDEjfNV0Pp-c-qIdmg2DxA3QfGMpSBnHxiwvtCBFIHMUo1LXi5biRdCKcTZc6geSFQbjQMZ-3sfv246I03DVZuPvnQuteuhkXwVIJmT39bbX-7IN_zysMFrOe-Ukqbez9wOFSelYIdkexvtoVCUo5xUWmuUZpO7KtlUJ9WAd2-H9ulliqpNDH-UGkFOBJcGusyl_9Wbi85WlWCId4zOBxovrheNgGaevzajLAvXg"
-    },
-    "logName": "projects/x-casing-138623/logs/script.googleapis.com%2Fconsole_logs",
-    "receiveTimestamp": "2020-10-29T10:48:22.821275349Z"
-}
+    {
+        "insertId": "tpb48tf1irqct",
+        "jsonPayload": {
+            "serviceContext": {
+                "version": "GS:web",
+                "service": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s"
+            },
+            "message": "{ type: 'message',\n  replyToken: 'a8a90e2a802c48509b21d3e0811389af',\n  source: { userId: 'U25aa75e3ba330989f85018b2b0bbcef7', type: 'user' },\n  timestamp: 1604039974683,\n  mode: 'active',\n  message: { type: 'text', id: '12942421761894', text: '塔羅' } }"
+        },
+        "resource": {
+            "type": "app_script_function",
+            "labels": {
+                "function_name": "",
+                "project_id": "x-casing-138623",
+                "invocation_type": "custom function"
+            }
+        },
+        "timestamp": "2020-10-30T06:39:36.168Z",
+        "severity": "DEBUG",
+        "labels": {
+            "script.googleapis.com/project_key": "MT_ORbAu973PS3g5puHjzXRLoNXZsg87s",
+            "script.googleapis.com/deployment_id": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
+            "script.googleapis.com/process_id": "EAEA1GOzLQuhOe5rGfoZ7vdsgzaTI2gohuo0PpoMhRLeI7k1tRFjBlYXZTg5AZBvT0NwY9TpeCvm69oXvUPX4-Q0Oyy7hiHNMrKFlj848MEfKq2IO3l4_Gqwxx00vthbxvgW94T1cke3UJHzA_10q0kPNiJv-bk_EPXMHzFTKRVwu1OTTrj7KgLo-5SHWMJjqu6NdtWEG6mm_GjimtAvdgUHFslzD6u0ywfp_XZ08ftAW41ANdydD00voMErC3Ft0AWxwWLCg8YsTOYvO3UYzq-No44RUUw"
+        },
+        "logName": "projects/x-casing-138623/logs/script.googleapis.com%2Fconsole_logs",
+        "receiveTimestamp": "2020-10-30T06:39:36.817782388Z"
+    }
+]
