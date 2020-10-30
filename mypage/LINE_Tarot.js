@@ -83,8 +83,8 @@ function doPost(e) {
         case 'message':
             userMessage = msg.events[0].message.text;
             if (userMessage.indexOf('塔羅') != -1) {
-                //return_txt = json_txt[3];   
-                return_txt = txt_3;
+                return_txt = json_txt[3];   
+                //return_txt = txt_3;
                 sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             }
             else {
@@ -106,8 +106,8 @@ function doPost(e) {
                 //response = UrlFetchApp.fetch('https://s96116157.github.io/js/json/info.json'); // get feed
                 var info_txt = JSON.parse(response.getContentText()); //
                 //var txt_2 = { "type": "text", "text": info_txt['info'][0]['txt'] };
-                console.log('============== info_txt =================');
-                console.log(info_txt);
+                //console.log('============== info_txt =================');
+                //console.log(info_txt);
 
                 //sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt, txt_2)
                 sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, info_txt);
@@ -124,10 +124,8 @@ function doPost(e) {
 //傳送訊息給使用者
 function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1, txt_2) {
     if (txt_2 == '') {
-        console.log('============== 塔羅 =================');
         var msg = [txt_1];
     } else {
-        console.log('============ 其他訊息 =================');
         var msg = [txt_1, txt_2];
     }
     var url = 'https://api.line.me/v2/bot/message/reply';
@@ -145,8 +143,6 @@ function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1, txt_2) {
 }
 
 function sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, msg) {
-    console.log('============ Push =================');
-    console.log(msg);
     var url = 'https://api.line.me/v2/bot/message/reply';
     UrlFetchApp.fetch(url, {
         "headers": {
