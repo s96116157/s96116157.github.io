@@ -1,138 +1,366 @@
-{
-    "type": "flex",
-    "altText": "this is a flex message",
-    "contents": {
-        "type": "carousel",
-        "contents": [
-            {
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://s96116157.github.io/image/Tarot_20201029_001.jpg",
-                    "align": "center",
-                    "size": "full",
-                    "aspectRatio": "8:11",
-                    "aspectMode": "cover"
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "第一組",
-                            "weight": "bold",
-                            "size": "xl",
-                            "align": "center",
-                            "contents": []
-                        }
-                    ]
-                },
-                "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "flex": 0,
-                    "spacing": "sm",
-                    "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "postback",
-                                "label": "選擇",
-                                "data": "1"
-                            },
-                            "height": "sm",
-                            "style": "primary"
-                        }
-                    ]
-                }
+[
+    {
+        "type": "flex",
+        "altText": "this is a flex message",
+        "contents": {
+            "type": "bubble",
+            "hero": {
+                "type": "image",
+                "url": "https://s96116157.github.io/image/Face_001.jpg",
+                "size": "full",
+                "aspectRatio": "20:15",
+                "aspectMode": "cover",
+                "backgroundColor": "#FFFFFFFF"
             },
-            {
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://s96116157.github.io/image/Tarot_20201029_002.jpg",
-                    "align": "center",
-                    "size": "full",
-                    "aspectRatio": "8:11",
-                    "aspectMode": "cover"
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "第一組",
-                            "weight": "bold",
-                            "size": "xl",
-                            "align": "center",
-                            "contents": []
-                        }
-                    ]
-                },
-                "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "flex": 0,
-                    "spacing": "sm",
-                    "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "postback",
-                                "label": "選擇",
-                                "data": "1"
-                            },
-                            "height": "sm",
-                            "style": "primary"
-                        }
-                    ]
-                }
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "backgroundColor": "#A79486FF",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Hi. 我是 Clio",
+                        "weight": "bold",
+                        "size": "xl",
+                        "color": "#FFFFFFFF",
+                        "contents": []
+                    },
+                    {
+                        "type": "text",
+                        "text": "很開心我們成為了好友！\n自然塔羅是以牌卡占卜和大家分享：人生哲學、心靈成長、運勢解析\n沒有個人占卜、收費服務\n除了塔羅和閒聊以外，偶爾會天降趣味小測驗，單純想和大家分享塔羅的有趣，一起開心互動。",
+                        "size": "md",
+                        "color": "#FFFFFFFF",
+                        "wrap": true,
+                        "contents": []
+                    }
+                ]
             },
-            {
-                "type": "bubble",
-                "hero": {
-                    "type": "image",
-                    "url": "https://s96116157.github.io/image/Tarot_20201029_003.jpg",
-                    "align": "center",
-                    "size": "full",
-                    "aspectRatio": "8:11",
-                    "aspectMode": "cover"
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "第一組",
-                            "weight": "bold",
-                            "size": "xl",
-                            "align": "center",
-                            "contents": []
-                        }
-                    ]
-                },
-                "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "flex": 0,
-                    "spacing": "sm",
-                    "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "postback",
-                                "label": "選擇",
-                                "data": "1"
-                            },
-                            "height": "sm",
-                            "style": "primary"
-                        }
-                    ]
-                }
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 0,
+                "spacing": "sm",
+                "backgroundColor": "#A79486FF",
+                "contents": [
+                    {
+                        "type": "filler"
+                    },
+                    {
+                        "type": "text",
+                        "text": "輸入「塔羅」或點選下方\n「點我看更多功能」將會為您服務哦！",
+                        "size": "sm",
+                        "color": "#FFFFFFFF",
+                        "align": "center",
+                        "wrap": true,
+                        "contents": []
+                    }
+                ]
             }
-        ]
+        }
+    },
+    {
+        "type": "flex",
+        "altText": "this is a flex message",
+        "contents": {
+            "type": "carousel",
+            "contents": [
+                {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": "https://s96116157.github.io/image/Tarot_20201029_001.jpg",
+                        "align": "center",
+                        "size": "full",
+                        "aspectRatio": "8:11",
+                        "aspectMode": "cover"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "第一組",
+                                "weight": "bold",
+                                "size": "xl",
+                                "align": "center",
+                                "contents": []
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 0,
+                        "spacing": "sm",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "postback",
+                                    "label": "選擇",
+                                    "data": "1"
+                                },
+                                "height": "sm",
+                                "style": "primary"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": "https://s96116157.github.io/image/Tarot_20201029_002.jpg",
+                        "align": "center",
+                        "size": "full",
+                        "aspectRatio": "8:11",
+                        "aspectMode": "cover"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "第一組",
+                                "weight": "bold",
+                                "size": "xl",
+                                "align": "center",
+                                "contents": []
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 0,
+                        "spacing": "sm",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "postback",
+                                    "label": "選擇",
+                                    "data": "1"
+                                },
+                                "height": "sm",
+                                "style": "primary"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": "https://s96116157.github.io/image/Tarot_20201029_003.jpg",
+                        "align": "center",
+                        "size": "full",
+                        "aspectRatio": "8:11",
+                        "aspectMode": "cover"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "第一組",
+                                "weight": "bold",
+                                "size": "xl",
+                                "align": "center",
+                                "contents": []
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 0,
+                        "spacing": "sm",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "postback",
+                                    "label": "選擇",
+                                    "data": "1"
+                                },
+                                "height": "sm",
+                                "style": "primary"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "type": "flex",
+        "altText": "this is a flex message",
+        "contents": {
+            "type": "carousel",
+            "contents": [
+                {
+                    "type": "bubble",
+                    "size": "nano",
+                    "header": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "In Progress",
+                                "color": "#ffffff",
+                                "align": "start",
+                                "size": "md",
+                                "gravity": "center"
+                            },
+                            {
+                                "type": "text",
+                                "text": "70%",
+                                "color": "#ffffff",
+                                "align": "start",
+                                "size": "xs",
+                                "gravity": "center",
+                                "margin": "lg"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "filler"
+                                            }
+                                        ],
+                                        "width": "70%",
+                                        "backgroundColor": "#0D8186",
+                                        "height": "6px"
+                                    }
+                                ],
+                                "backgroundColor": "#9FD8E36E",
+                                "height": "6px",
+                                "margin": "sm"
+                            }
+                        ],
+                        "backgroundColor": "#27ACB2",
+                        "paddingTop": "19px",
+                        "paddingAll": "12px",
+                        "paddingBottom": "16px"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "Buy milk and lettuce before class",
+                                        "color": "#8C8C8C",
+                                        "size": "sm",
+                                        "wrap": true
+                                    }
+                                ],
+                                "flex": 1
+                            }
+                        ],
+                        "spacing": "md",
+                        "paddingAll": "12px"
+                    },
+                    "styles": {
+                        "footer": {
+                            "separator": false
+                        }
+                    }
+                },
+                {
+                    "type": "bubble",
+                    "size": "nano",
+                    "header": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "Pending",
+                                "color": "#ffffff",
+                                "align": "start",
+                                "size": "md",
+                                "gravity": "center"
+                            },
+                            {
+                                "type": "text",
+                                "text": "30%",
+                                "color": "#ffffff",
+                                "align": "start",
+                                "size": "xs",
+                                "gravity": "center",
+                                "margin": "lg"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "filler"
+                                            }
+                                        ],
+                                        "width": "30%",
+                                        "backgroundColor": "#DE5658",
+                                        "height": "6px"
+                                    }
+                                ],
+                                "backgroundColor": "#FAD2A76E",
+                                "height": "6px",
+                                "margin": "sm"
+                            }
+                        ],
+                        "backgroundColor": "#FF6B6E",
+                        "paddingTop": "19px",
+                        "paddingAll": "12px",
+                        "paddingBottom": "16px"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "box",
+                                "layout": "horizontal",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "Wash my car",
+                                        "color": "#8C8C8C",
+                                        "size": "sm",
+                                        "wrap": true
+                                    }
+                                ],
+                                "flex": 1
+                            }
+                        ],
+                        "spacing": "md",
+                        "paddingAll": "12px"
+                    },
+                    "styles": {
+                        "footer": {
+                            "separator": false
+                        }
+                    }
+                }
+            ]
+        }
     }
-}
+]
