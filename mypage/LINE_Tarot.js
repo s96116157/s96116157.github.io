@@ -8,30 +8,58 @@ var txt_3 = {
     "altText": "this is a flex message",
     "contents":
     {
-        "type": "bubble",
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "md",
-            "contents": [
+        "type": "carousel",
+        "contents": [{
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "contents": [
 
-                {
-                    "type": "text",
-                    "text": "hello"
-                },
+                    {
+                        "type": "text",
+                        "text": "hello"
+                    },
 
-                {
-                    "type": "button",
-                    "style": "primary",
-                    "action": {
-                        "type": "uri",
-                        "label": "Primary style button",
-                        "uri": "https://example.com"
+                    {
+                        "type": "button",
+                        "style": "primary",
+                        "action": {
+                            "type": "uri",
+                            "label": "Primary style button",
+                            "uri": "https://example.com"
+                        }
                     }
-                }
 
-            ]
-        }
+                ]
+            }
+        }, {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "md",
+                "contents": [
+
+                    {
+                        "type": "text",
+                        "text": "hello"
+                    },
+
+                    {
+                        "type": "button",
+                        "style": "primary",
+                        "action": {
+                            "type": "uri",
+                            "label": "Primary style button",
+                            "uri": "https://example.com"
+                        }
+                    }
+
+                ]
+            }
+        }]
     }
 };
 
@@ -50,7 +78,6 @@ function doPost(e) {
     switch (userType) {
         case 'follow':
             sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, json_txt[0], json_txt[1]);
-            return;
         case 'unfollow':
             return;
         case 'message':
@@ -75,15 +102,20 @@ function doPost(e) {
                     "previewImageUrl": "https://s96116157.github.io/image/A_00" + num + ".png"
                 };
 
-                response = UrlFetchApp.fetch('https://s96116157.github.io/js/json/info.json'); // get feed
+                response = UrlFetchApp.fetch('https://s96116157.github.io/js/json/LINE_bubble.json');
+                //response = UrlFetchApp.fetch('https://s96116157.github.io/js/json/info.json'); // get feed
                 var info_txt = JSON.parse(response.getContentText()); //
-                var txt_2 = { "type": "text", "text": info_txt['info'][0]['txt'] };
+                //var txt_2 = { "type": "text", "text": info_txt['info'][0]['txt'] };
+                console.log('============== info_txt =================');
+                console.log(info_txt);
 
-                sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt, txt_2)
-                //sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                //sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt, txt_2)
+                sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, info_txt);
             }
             return;
     }
+
+    console.log('============== END =================');
     //==========================================================================================
     //sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
     //==========================================================================================
@@ -92,8 +124,10 @@ function doPost(e) {
 //傳送訊息給使用者
 function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1, txt_2) {
     if (txt_2 == '') {
+        console.log('============== 塔羅 =================');
         var msg = [txt_1];
     } else {
+        console.log('============ 其他訊息 =================');
         var msg = [txt_1, txt_2];
     }
     var url = 'https://api.line.me/v2/bot/message/reply';
@@ -111,6 +145,8 @@ function sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, txt_1, txt_2) {
 }
 
 function sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, msg) {
+    console.log('============ Push =================');
+    console.log(msg);
     var url = 'https://api.line.me/v2/bot/message/reply';
     UrlFetchApp.fetch(url, {
         "headers": {
