@@ -66,92 +66,6 @@
             "contents": [
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "image",
-                        "url": "https://s96116157.github.io/image/Tarot_20201029_001.jpg",
-                        "align": "center",
-                        "size": "full",
-                        "aspectRatio": "8:11",
-                        "aspectMode": "cover"
-                    },
-                    "body": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                            {
-                                "type": "text",
-                                "text": "第一組",
-                                "weight": "bold",
-                                "size": "xl",
-                                "align": "center",
-                                "contents": []
-                            }
-                        ]
-                    },
-                    "footer": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "flex": 0,
-                        "spacing": "sm",
-                        "contents": [
-                            {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "選擇",
-                                    "data": "1"
-                                },
-                                "height": "sm",
-                                "style": "primary"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "bubble",
-                    "hero": {
-                        "type": "image",
-                        "url": "https://s96116157.github.io/image/Tarot_20201029_002.jpg",
-                        "align": "center",
-                        "size": "full",
-                        "aspectRatio": "8:11",
-                        "aspectMode": "cover"
-                    },
-                    "body": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "contents": [
-                            {
-                                "type": "text",
-                                "text": "第一組",
-                                "weight": "bold",
-                                "size": "xl",
-                                "align": "center",
-                                "contents": []
-                            }
-                        ]
-                    },
-                    "footer": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "flex": 0,
-                        "spacing": "sm",
-                        "contents": [
-                            {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "選擇",
-                                    "data": "1"
-                                },
-                                "height": "sm",
-                                "style": "primary"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "bubble",
                     "body": {
                         "type": "box",
                         "layout": "vertical",
@@ -160,9 +74,7 @@
                                 "type": "image",
                                 "url": "https://s96116157.github.io/image/Tarot_20201029_003.jpg",
                                 "size": "full",
-                                "aspectMode": "cover",
-                                "aspectRatio": "2:3",
-                                "gravity": "top"
+                                "aspectRatio": "2:3"
                             },
                             {
                                 "type": "box",
@@ -199,50 +111,57 @@
                                 "offsetBottom": "none"
                             }
                         ],
-                        "paddingAll": "0px"
+                        "paddingAll": "none"
                     }
                 },
                 {
                     "type": "bubble",
-                    "hero": {
-                        "type": "image",
-                        "url": "https://s96116157.github.io/image/Tarot_20201029_003.jpg",
-                        "align": "center",
-                        "size": "full",
-                        "aspectRatio": "8:11",
-                        "aspectMode": "cover"
-                    },
                     "body": {
                         "type": "box",
                         "layout": "vertical",
                         "contents": [
                             {
-                                "type": "text",
-                                "text": "第一組",
-                                "weight": "bold",
-                                "size": "xl",
-                                "align": "center",
-                                "contents": []
-                            }
-                        ]
-                    },
-                    "footer": {
-                        "type": "box",
-                        "layout": "vertical",
-                        "flex": 0,
-                        "spacing": "sm",
-                        "contents": [
+                                "type": "image",
+                                "url": "https://s96116157.github.io/image/Tarot_20201029_003.jpg",
+                                "size": "full",
+                                "aspectRatio": "2:3"
+                            },
                             {
-                                "type": "button",
-                                "action": {
-                                    "type": "postback",
-                                    "label": "選擇",
-                                    "data": "1"
-                                },
-                                "height": "sm",
-                                "style": "primary"
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "postback",
+                                                    "label": "Select",
+                                                    "data": "hello"
+                                                },
+                                                "color": "#FFFFFF",
+                                                "height": "sm"
+                                            }
+                                        ],
+                                        "borderWidth": "1px",
+                                        "spacing": "md",
+                                        "borderColor": "#ffffff",
+                                        "margin": "md",
+                                        "height": "40px"
+                                    }
+                                ],
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "backgroundColor": "#ffffff30",
+                                "paddingAll": "20px",
+                                "paddingTop": "15px",
+                                "position": "absolute",
+                                "offsetBottom": "none"
                             }
-                        ]
+                        ],
+                        "paddingAll": "none"
                     }
                 }
             ]
