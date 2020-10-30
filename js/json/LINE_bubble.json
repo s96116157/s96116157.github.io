@@ -99,7 +99,8 @@
                                         "spacing": "md",
                                         "borderColor": "#ffffff",
                                         "margin": "md",
-                                        "height": "40px"
+                                        "height": "40px",
+                                        "cornerRadius": "5px"
                                     }
                                 ],
                                 "offsetStart": "0px",
@@ -149,7 +150,8 @@
                                         "spacing": "md",
                                         "borderColor": "#ffffff",
                                         "margin": "md",
-                                        "height": "40px"
+                                        "height": "40px",
+                                        "cornerRadius": "5px"
                                     }
                                 ],
                                 "offsetStart": "0px",
