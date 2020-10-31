@@ -16,6 +16,7 @@ function doPost(e) {
     if (typeof replyToken === 'undefined') {
         return;
     }
+
     var userType = msg.events[0].type;
     switch (userType) {
         case 'follow':
@@ -32,11 +33,9 @@ function doPost(e) {
                 if (num != 0) {
                     return_txt = json_txt[3];
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-                    console.log('============== num != 0 =================');
                 } else {
                     return_txt = getJson(2);
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-                    console.log('============== num == 0 =================');
                 }
             }
             else {
@@ -45,25 +44,40 @@ function doPost(e) {
             }
             return;
         case 'postback':
-            var num = getUserAnswer(clientID, 2);
-            if (num != 0) {
-                userMessage = msg.events[0].postback.data;
-                if (userMessage.indexOf('占卜') != -1) {
-                    var num = getRandom(0, 9);
-                    return_txt = {
-                        "type": "image",
-                        "originalContentUrl": "https://s96116157.github.io/image/A_00" + num + ".png",
-                        "previewImageUrl": "https://s96116157.github.io/image/A_00" + num + ".png"
-                    };
-                    return_txt = getJson(1);
-                    getUserAnswer(clientID, 7);
+            var num = getUserAnswer(clientID, 1);
+            console.log('============ postback userMessage ============');
+            switch (num) {
+                case 0:
+                    userMessage = msg.events[0].postback.data;
+                    console.log(userMessage);
+                    console.log(userMessage.indexOf('gender_'));
+                    if (userMessage.indexOf('gender_') != -1) {
+                        console.log('============ 寫入性別欄位 ============');
+                        // =============== 寫入性別欄位 ===============
+                        getUserAnswer(clientID, 2);
+                        return_txt = json_txt[3];
+                        sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    }
+                    console.log('============ no = -1 ============');
+                    return;
+                case 1:
+                    userMessage = msg.events[0].postback.data;
+                    if (userMessage.indexOf('占卜') != -1) {
+                        var num = getRandom(0, 9);
+                        return_txt = {
+                            "type": "image",
+                            "originalContentUrl": "https://s96116157.github.io/image/A_00" + num + ".png",
+                            "previewImageUrl": "https://s96116157.github.io/image/A_00" + num + ".png"
+                        };
+                        return_txt = getJson(1);
+                        getUserAnswer(clientID, 7);
+                        sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    }
+                    return;
+                default:
+                    return_txt = getJson(2);
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-                }
-                return;
-            } else {
-                return_txt = getJson(2);
-                sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-                console.log('============== num == 0 =================');
+                    return;
             }
     }
     console.log('============== END =================');
@@ -119,15 +133,21 @@ function getUserAnswer(clientID, type) {
     for (var i = lastRow - 1; i >= 0; i--) {
         // ============= 如果有找到 ID ===============
         if (sheetData[i][0] == clientID) {
-            if (type == 0) {
-                sheet.getRange(i + 1, 2).setValue(0);
-                sheet.getRange(i + 1, 5).setValue(time);
-                return;
-            }
-            else {
-                returnData = sheetData[i][1];
-                console.log(returnData);
-                return returnData;
+            switch (type) {
+                case 0:
+                    sheet.getRange(i + 1, 2).setValue(0);
+                    sheet.getRange(i + 1, 5).setValue(time);
+                    return;
+                case 2:
+                    var g = userMessage.charAt(userMessage.length - 1);
+                    sheet.getRange(i + 1, 2).setValue(1);
+                    sheet.getRange(i + 1, 3).setValue(g);
+                    // =============== 寫入性別欄位 ===============
+                    return;
+                default:
+                    returnData = sheetData[i][1];
+                    console.log(returnData);
+                    return returnData;
             }
         }
     }

@@ -250,7 +250,7 @@
                                                 "action": {
                                                     "type": "postback",
                                                     "label": "男性",
-                                                    "data": "M"
+                                                    "data": "gender_M"
                                                 },
                                                 "gravity": "bottom",
                                                 "color": "#FFFFFF",
@@ -300,7 +300,7 @@
                                                 "action": {
                                                     "type": "postback",
                                                     "label": "女性",
-                                                    "data": "F"
+                                                    "data": "gender_F"
                                                 },
                                                 "gravity": "bottom",
                                                 "color": "#FFFFFF",
@@ -350,7 +350,7 @@
                                                 "action": {
                                                     "type": "postback",
                                                     "label": "中性",
-                                                    "data": "T"
+                                                    "data": "gender_T"
                                                 },
                                                 "gravity": "bottom",
                                                 "color": "#FFFFFF",
