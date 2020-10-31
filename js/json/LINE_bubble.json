@@ -236,7 +236,7 @@
                                 "offsetBottom": "0px",
                                 "offsetStart": "0px",
                                 "offsetEnd": "0px",
-                                "paddingAll": "20px",
+                                "paddingAll": "13px",
                                 "backgroundColor": "#00000050",
                                 "contents": [
                                     {
@@ -286,7 +286,7 @@
                                 "offsetBottom": "0px",
                                 "offsetStart": "0px",
                                 "offsetEnd": "0px",
-                                "paddingAll": "15px",
+                                "paddingAll": "13px",
                                 "backgroundColor": "#00000050",
                                 "contents": [
                                     {
@@ -336,7 +336,7 @@
                                 "offsetBottom": "0px",
                                 "offsetStart": "0px",
                                 "offsetEnd": "0px",
-                                "paddingAll": "10px",
+                                "paddingAll": "12px",
                                 "backgroundColor": "#00000050",
                                 "contents": [
                                     {
