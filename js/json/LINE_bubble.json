@@ -177,7 +177,46 @@
             "contents": [
                 {
                     "type": "bubble",
-                    "size": "micro",
+                    "size": "nano",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "paddingAll": "0px",
+                        "contents": [
+                            {
+                                "type": "image",
+                                "url": "https://s96116157.github.io/image/gender_000.jpg",
+                                "size": "full",
+                                "aspectRatio": "2:3",
+                                "aspectMode": "cover"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "position": "absolute",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "paddingAll": "50px",
+                                "backgroundColor": "#00000050",
+                                "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "第一次使用請先選擇您的性別，可以讓占卜結果更加準確哦。",
+                                        "size": "lg",
+                                        "color": "#FFFFFFFF",
+                                        "align": "center",
+                                        "wrap": true,
+                                        "contents": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "bubble",
+                    "size": "nano",
                     "body": {
                         "type": "box",
                         "layout": "vertical",
@@ -214,6 +253,7 @@
                                                     "label": "男性",
                                                     "data": "M"
                                                 },
+                                                "gravity": "bottom",
                                                 "color": "#FFFFFF",
                                                 "height": "sm"
                                             }
@@ -226,7 +266,7 @@
                 },
                 {
                     "type": "bubble",
-                    "size": "micro",
+                    "size": "nano",
                     "body": {
                         "type": "box",
                         "layout": "vertical",
@@ -261,8 +301,9 @@
                                                 "action": {
                                                     "type": "postback",
                                                     "label": "女性",
-                                                    "data": "M"
+                                                    "data": "F"
                                                 },
+                                                "gravity": "bottom",
                                                 "color": "#FFFFFF",
                                                 "height": "sm"
                                             }
@@ -275,7 +316,7 @@
                 },
                 {
                     "type": "bubble",
-                    "size": "micro",
+                    "size": "nano",
                     "body": {
                         "type": "box",
                         "layout": "vertical",
@@ -283,7 +324,7 @@
                         "contents": [
                             {
                                 "type": "image",
-                                "url": "https://s96116157.github.io/image/gender_001.jpg",
+                                "url": "https://s96116157.github.io/image/gender_003.jpg",
                                 "size": "full",
                                 "aspectRatio": "2:3",
                                 "aspectMode": "cover"
@@ -312,6 +353,7 @@
                                                     "label": "中性",
                                                     "data": "T"
                                                 },
+                                                "gravity": "bottom",
                                                 "color": "#FFFFFF",
                                                 "height": "sm"
                                             }
