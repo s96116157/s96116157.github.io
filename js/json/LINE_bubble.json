@@ -249,7 +249,7 @@
                                     "action": {
                                         "type": "postback",
                                         "label": "選擇",
-                                        "data": ""
+                                        "data": "1"
                                     },
                                     "color": "#FFFFFF00",
                                     "height": "sm",
