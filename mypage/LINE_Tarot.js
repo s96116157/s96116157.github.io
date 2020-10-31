@@ -10,7 +10,7 @@ function doPost(e) {
     var clientID = msg.events[0].source.userId;
     var return_txt = '';
     var userMessage = '';
-    console.log('============ 202010302109 ============');
+    console.log('============ 202010311145 ============');
     console.log(msg.events[0]);
     var replyToken = msg.events[0].replyToken;
     if (typeof replyToken === 'undefined') {
@@ -20,7 +20,7 @@ function doPost(e) {
     switch (userType) {
         case 'follow':
             return_txt = getJson(0);
-            getUserAnswer(clientID, 99);
+            getUserAnswer(clientID, 0);
             sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             return;
         case 'unfollow':
@@ -28,28 +28,43 @@ function doPost(e) {
         case 'message':
             userMessage = msg.events[0].message.text;
             if (userMessage.indexOf('塔羅') != -1) {
-                return_txt = json_txt[3];
-                sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                var num = getUserAnswer(clientID, 1);
+                if (num != 0) {
+                    return_txt = json_txt[3];
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    console.log('============== num != 0 =================');
+                } else {
+                    return_txt = getJson(2);
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    console.log('============== num == 0 =================');
+                }
             }
             else {
-                return_txt = json_txt[1];
-                sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt, '');
+                //return_txt = json_txt[1];
+                //sendReplyMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt, '');
             }
             return;
         case 'postback':
-            userMessage = msg.events[0].postback.data;
-            if (userMessage.indexOf('占卜') != -1) {
-                var num = getRandom(0, 9);
-                return_txt = {
-                    "type": "image",
-                    "originalContentUrl": "https://s96116157.github.io/image/A_00" + num + ".png",
-                    "previewImageUrl": "https://s96116157.github.io/image/A_00" + num + ".png"
-                };
-                return_txt = getJson(1);
-                getUserAnswer(clientID, 7);
+            var num = getUserAnswer(clientID, 2);
+            if (num != 0) {
+                userMessage = msg.events[0].postback.data;
+                if (userMessage.indexOf('占卜') != -1) {
+                    var num = getRandom(0, 9);
+                    return_txt = {
+                        "type": "image",
+                        "originalContentUrl": "https://s96116157.github.io/image/A_00" + num + ".png",
+                        "previewImageUrl": "https://s96116157.github.io/image/A_00" + num + ".png"
+                    };
+                    return_txt = getJson(1);
+                    getUserAnswer(clientID, 7);
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                }
+                return;
+            } else {
+                return_txt = getJson(2);
                 sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                console.log('============== num == 0 =================');
             }
-            return;
     }
     console.log('============== END =================');
 }
@@ -89,9 +104,9 @@ function sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, msg) {
     });
 }
 
-function getUserAnswer(clientID, clientMessage) {
+function getUserAnswer(clientID, type) {
     //=======================================================================
-    var spreadSheetID = "1X5Mtln-MYBhyBRn0RveNOXCkb32A4VTzht1AIGkNvdU";
+    var spreadSheetID = "1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc"; //LINEBOT_USER
     var spreadSheet = SpreadsheetApp.openById(spreadSheetID);
     var sheet = spreadSheet.getActiveSheet();
     var lastRow = sheet.getLastRow();
@@ -99,23 +114,35 @@ function getUserAnswer(clientID, clientMessage) {
     var sheetData = sheet.getSheetValues(1, 1, lastRow, lastColumn);
     //=======================================================================
     var time = Utilities.formatDate(new Date(), "GMT+8", "yyyy-MM-dd HH:mm:ss");
+    var returnData = [];
+
     for (var i = lastRow - 1; i >= 0; i--) {
+        // ============= 如果有找到 ID ===============
         if (sheetData[i][0] == clientID) {
-            sheet.getRange(i + 1, 2).setValue(clientMessage);
-            sheet.getRange(i + 1, 3).setValue(time);
-            return;
+            if (type == 0) {
+                sheet.getRange(i + 1, 2).setValue(0);
+                sheet.getRange(i + 1, 5).setValue(time);
+                return;
+            }
+            else {
+                returnData = sheetData[i][1];
+                console.log(returnData);
+                return returnData;
+            }
         }
     }
 
+    // ============= 如果沒找到 ID ===============
     sheet.insertRowAfter(lastRow);
     sheet.getRange(lastRow + 1, 1).setValue(clientID);
-    sheet.getRange(lastRow + 1, 2).setValue(clientMessage);
-    sheet.getRange(lastRow + 1, 3).setValue(time);
-    return;
+    sheet.getRange(lastRow + 1, 2).setValue(0);
+    sheet.getRange(lastRow + 1, 5).setValue(time);
+    return 0;
 }
 
 function getJson(i) {
-    var response = UrlFetchApp.fetch('https://s96116157.github.io/js/json/LINE_bubble.json');
+    // 0 = follow
+    var response = UrlFetchApp.fetch('https://s96116157.github.io/js/json/LINE_bubble.json'); // 外框 JSON
     var info_txt = JSON.parse(response.getContentText()); //
     if (i == 1) {
         for (var num = 0; num < 0; num++) {
