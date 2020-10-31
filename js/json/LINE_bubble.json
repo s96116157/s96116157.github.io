@@ -123,7 +123,58 @@
                         "contents": [
                             {
                                 "type": "image",
-                                "url": "https://s96116157.github.io/image/Tarot_20201029_003.jpg",
+                                "url": "https://s96116157.github.io/image/Tarot_20201029_001.jpg",
+                                "size": "full",
+                                "aspectRatio": "2:3"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "postback",
+                                                    "label": "Select",
+                                                    "data": "hello"
+                                                },
+                                                "color": "#FFFFFF",
+                                                "height": "sm"
+                                            }
+                                        ],
+                                        "borderWidth": "1px",
+                                        "spacing": "md",
+                                        "borderColor": "#ffffff",
+                                        "margin": "md",
+                                        "height": "40px",
+                                        "cornerRadius": "5px"
+                                    }
+                                ],
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "backgroundColor": "#ffffff30",
+                                "paddingAll": "20px",
+                                "paddingTop": "15px",
+                                "position": "absolute",
+                                "offsetBottom": "none"
+                            }
+                        ],
+                        "paddingAll": "none"
+                    }
+                },
+                {
+                    "type": "bubble",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "contents": [
+                            {
+                                "type": "image",
+                                "url": "https://s96116157.github.io/image/Tarot_20201029_002.jpg",
                                 "size": "full",
                                 "aspectRatio": "2:3"
                             },
