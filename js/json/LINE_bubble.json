@@ -197,13 +197,13 @@
                                 "offsetBottom": "0px",
                                 "offsetStart": "0px",
                                 "offsetEnd": "0px",
-                                "paddingAll": "50px",
+                                "paddingAll": "5px",
                                 "backgroundColor": "#00000050",
                                 "contents": [
                                     {
                                         "type": "text",
-                                        "text": "第一次使用請先選擇您的性別，可以讓占卜結果更加準確哦。",
-                                        "size": "lg",
+                                        "text": "請先選擇性別\n可以讓結果更加準確哦。",
+                                        "size": "sm",
                                         "color": "#FFFFFFFF",
                                         "align": "center",
                                         "wrap": true,
@@ -236,7 +236,7 @@
                                 "offsetBottom": "0px",
                                 "offsetStart": "0px",
                                 "offsetEnd": "0px",
-                                "paddingAll": "25px",
+                                "paddingAll": "5px",
                                 "backgroundColor": "#00000050",
                                 "contents": [
                                     {
@@ -286,7 +286,7 @@
                                 "offsetBottom": "0px",
                                 "offsetStart": "0px",
                                 "offsetEnd": "0px",
-                                "paddingAll": "25px",
+                                "paddingAll": "5px",
                                 "backgroundColor": "#00000050",
                                 "contents": [
                                     {
@@ -336,7 +336,7 @@
                                 "offsetBottom": "0px",
                                 "offsetStart": "0px",
                                 "offsetEnd": "0px",
-                                "paddingAll": "25px",
+                                "paddingAll": "5px",
                                 "backgroundColor": "#00000050",
                                 "contents": [
                                     {
