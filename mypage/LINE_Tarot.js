@@ -21,7 +21,7 @@ function doPost(e) {
     switch (userType) {
         case 'follow':
             return_txt = getJson(0);
-            getUserAnswer(clientID, 0);
+            getUserAnswer(clientID, 0, '');
             sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             return;
         case 'unfollow':
@@ -29,7 +29,7 @@ function doPost(e) {
         case 'message':
             userMessage = msg.events[0].message.text;
             if (userMessage.indexOf('塔羅') != -1) {
-                var num = getUserAnswer(clientID, 1);
+                var num = getUserAnswer(clientID, 1, '');
                 if (num != 0) {
                     return_txt = json_txt[3];
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
@@ -44,21 +44,17 @@ function doPost(e) {
             }
             return;
         case 'postback':
-            var num = getUserAnswer(clientID, 1);
-            console.log('============ postback userMessage ============');
+            var num = getUserAnswer(clientID, 1, '');
             switch (num) {
                 case 0:
                     userMessage = msg.events[0].postback.data;
-                    console.log(userMessage);
-                    console.log(userMessage.indexOf('gender_'));
                     if (userMessage.indexOf('gender_') != -1) {
-                        console.log('============ 寫入性別欄位 ============');
                         // =============== 寫入性別欄位 ===============
-                        getUserAnswer(clientID, 2);
+                        var txt = userMessage.charAt(userMessage.length - 1);
+                        getUserAnswer(clientID, 2, txt);
                         return_txt = json_txt[3];
                         sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     }
-                    console.log('============ no = -1 ============');
                     return;
                 case 1:
                     userMessage = msg.events[0].postback.data;
@@ -70,7 +66,7 @@ function doPost(e) {
                             "previewImageUrl": "https://s96116157.github.io/image/A_00" + num + ".png"
                         };
                         return_txt = getJson(1);
-                        getUserAnswer(clientID, 7);
+                        getUserAnswer(clientID, 7, '');
                         sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     }
                     return;
@@ -118,7 +114,7 @@ function sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, msg) {
     });
 }
 
-function getUserAnswer(clientID, type) {
+function getUserAnswer(clientID, type, txt) {
     //=======================================================================
     var spreadSheetID = "1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc"; //LINEBOT_USER
     var spreadSheet = SpreadsheetApp.openById(spreadSheetID);
@@ -139,9 +135,8 @@ function getUserAnswer(clientID, type) {
                     sheet.getRange(i + 1, 5).setValue(time);
                     return;
                 case 2:
-                    var g = userMessage.charAt(userMessage.length - 1);
                     sheet.getRange(i + 1, 2).setValue(1);
-                    sheet.getRange(i + 1, 3).setValue(g);
+                    sheet.getRange(i + 1, 3).setValue(txt);
                     // =============== 寫入性別欄位 ===============
                     return;
                 default:
