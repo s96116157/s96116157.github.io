@@ -213,53 +213,218 @@
         }
     },
     {
-        "type": "bubble",
-        "size": "micro",
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "paddingAll": "0px",
-            "backgroundColor": "#A79486FF",
+        "type": "flex",
+        "altText": "this is a flex message",
+        "contents": {
+            "type": "carousel",
             "contents": [
                 {
-                    "type": "image",
-                    "url": "",
-                    "size": "full",
-                    "aspectRatio": "40:57",
-                    "aspectMode": "cover"
+                    "type": "bubble",
+                    "size": "micro",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "paddingAll": "0px",
+                        "backgroundColor": "#A79486FF",
+                        "contents": [
+                            {
+                                "type": "image",
+                                "url": "",
+                                "size": "full",
+                                "aspectRatio": "40:57",
+                                "aspectMode": "cover"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "paddingAll": "10px",
+                                "backgroundColor": "#00000070",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "height": "40px",
+                                        "borderWidth": "1px",
+                                        "borderColor": "#FFFFFFFF",
+                                        "cornerRadius": "5px",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "postback",
+                                                    "label": "選擇",
+                                                    "data": "m_0"
+                                                },
+                                                "color": "#FFFFFF00",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "gravity": "bottom"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 },
                 {
-                    "type": "box",
-                    "layout": "vertical",
-                    "offsetBottom": "0px",
-                    "offsetStart": "0px",
-                    "offsetEnd": "0px",
-                    "paddingAll": "10px",
-                    "backgroundColor": "#00000070",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "height": "40px",
-                            "borderWidth": "1px",
-                            "borderColor": "#FFFFFFFF",
-                            "cornerRadius": "5px",
-                            "contents": [
-                                {
-                                    "type": "button",
-                                    "action": {
-                                        "type": "postback",
-                                        "label": "選擇",
-                                        "data": "1"
-                                    },
-                                    "color": "#FFFFFF00",
-                                    "height": "sm",
-                                    "style": "primary",
-                                    "gravity": "bottom"
-                                }
-                            ]
-                        }
-                    ]
+                    "type": "bubble",
+                    "size": "micro",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "paddingAll": "0px",
+                        "backgroundColor": "#A79486FF",
+                        "contents": [
+                            {
+                                "type": "image",
+                                "url": "",
+                                "size": "full",
+                                "aspectRatio": "40:57",
+                                "aspectMode": "cover"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "paddingAll": "10px",
+                                "backgroundColor": "#00000070",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "height": "40px",
+                                        "borderWidth": "1px",
+                                        "borderColor": "#FFFFFFFF",
+                                        "cornerRadius": "5px",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "postback",
+                                                    "label": "選擇",
+                                                    "data": "m_1"
+                                                },
+                                                "color": "#FFFFFF00",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "gravity": "bottom"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "bubble",
+                    "size": "micro",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "paddingAll": "0px",
+                        "backgroundColor": "#A79486FF",
+                        "contents": [
+                            {
+                                "type": "image",
+                                "url": "",
+                                "size": "full",
+                                "aspectRatio": "40:57",
+                                "aspectMode": "cover"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "paddingAll": "10px",
+                                "backgroundColor": "#00000070",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "height": "40px",
+                                        "borderWidth": "1px",
+                                        "borderColor": "#FFFFFFFF",
+                                        "cornerRadius": "5px",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "postback",
+                                                    "label": "選擇",
+                                                    "data": "m_2"
+                                                },
+                                                "color": "#FFFFFF00",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "gravity": "bottom"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "bubble",
+                    "size": "micro",
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "paddingAll": "0px",
+                        "backgroundColor": "#A79486FF",
+                        "contents": [
+                            {
+                                "type": "image",
+                                "url": "",
+                                "size": "full",
+                                "aspectRatio": "40:57",
+                                "aspectMode": "cover"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "offsetBottom": "0px",
+                                "offsetStart": "0px",
+                                "offsetEnd": "0px",
+                                "paddingAll": "10px",
+                                "backgroundColor": "#00000070",
+                                "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "vertical",
+                                        "height": "40px",
+                                        "borderWidth": "1px",
+                                        "borderColor": "#FFFFFFFF",
+                                        "cornerRadius": "5px",
+                                        "contents": [
+                                            {
+                                                "type": "button",
+                                                "action": {
+                                                    "type": "postback",
+                                                    "label": "選擇",
+                                                    "data": "m_3"
+                                                },
+                                                "color": "#FFFFFF00",
+                                                "height": "sm",
+                                                "style": "primary",
+                                                "gravity": "bottom"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
             ]
         }

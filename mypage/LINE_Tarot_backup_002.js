@@ -71,9 +71,22 @@ function doPost(e) {
 function tarot_month() {
     var returnData = get_info(1, '');
     var return_txt = getJson(3);
+    var array_ = [4];
+
+    for (var i = 0; i < 4; i++) {
+        array_[i] = return_txt;
+    }
+
+    var x = { "type": "flex", "altText": "this is a flex message", "contents": { "type": "carousel", "contents": {} } };
+    x['contents']['contents'] = array_;
+    x = JSON.stringify(x);
+    x = JSON.parse(x);
+
     for (var i = 0; i < 4; i++) {
         var url_txt = 'https://s96116157.github.io/image/' + returnData[i] + '.jpg';
-        return_txt['contents']['contents'][i]["body"]["contents"][0]["url"] = url_txt;
+        var data_txt = "m_" + i.toString();
+        x['contents']['contents'][i]["body"]["contents"][0]["url"] = url_txt;
+        x['contents']['contents'][i]["body"]["contents"][1]["contents"][0]["contents"][0]["action"]["data"] = data_txt;
     }
     return x;
 }
