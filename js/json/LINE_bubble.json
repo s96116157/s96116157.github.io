@@ -214,7 +214,7 @@
     },
     {
         "type": "bubble",
-        "size": "kilo",
+        "size": "micro",
         "body": {
             "type": "box",
             "layout": "vertical",
@@ -234,7 +234,7 @@
                     "offsetBottom": "0px",
                     "offsetStart": "0px",
                     "offsetEnd": "0px",
-                    "paddingAll": "20px",
+                    "paddingAll": "10px",
                     "backgroundColor": "#00000070",
                     "contents": [
                         {

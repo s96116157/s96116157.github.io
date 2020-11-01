@@ -63,7 +63,9 @@ function tarot_month() {
 
     for (var i = 0; i < 4; i++) {
         var url_txt = 'https://s96116157.github.io/image/' + returnData[i] + '.jpg';
+        var data_txt = "m_" + i.toString();
         x['contents']['contents'][i]["body"]["contents"][0]["url"] = url_txt;
+        x['contents']['contents'][i]["body"]["contents"][1]["contents"][0]["contents"][0]["action"]["data"] = data_txt;
     }
     return x;
 }
