@@ -29,9 +29,15 @@ function doPost(e) {
             return;
         case 'postback':
             userMessage = msg.events[0].postback.data;
+            if (userMessage.indexOf('m_') != -1) {
+                ;
+                var x = userMessage.charAt(2);
+                userMessage = userMessage.substr(0, 2);
+            }
+
             switch (userMessage) {
                 case 'tarot_day':
-                    var returnData = get_info(0);
+                    var returnData = get_info(0, '');
                     return_txt = getJson(2);
                     return_txt['contents']['hero']['url'] = 'https://s96116157.github.io/image/' + returnData[0] + '.jpg';
                     return_txt['contents']['body']['contents'][1]['text'] = returnData[1];
@@ -39,6 +45,15 @@ function doPost(e) {
                     return;
                 case 'tarot_month':
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, tarot_month());
+                    return;
+                case 'm_':
+                    var returnData = get_info(2, x);
+                    return_txt = getJson(2);
+                    return_txt['contents']['hero']['url'] = 'https://s96116157.github.io/image/' + returnData[0] + '.jpg';
+                    return_txt['contents']['hero']['aspectRatio'] = '1:1';
+                    return_txt['contents']['body']['contents'][0]['text'] = '每月運勢';
+                    return_txt['contents']['body']['contents'][1]['text'] = returnData[1];
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     return;
             }
             return;
@@ -48,7 +63,7 @@ function doPost(e) {
 }
 
 function tarot_month() {
-    var returnData = get_info(1);
+    var returnData = get_info(1, '');
     var return_txt = getJson(3);
     var array_ = [4];
 
@@ -92,11 +107,11 @@ function sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, msg) {
     });
 }
 
-function get_info(type) {
+function get_info(type, select) {
     //=======================================================================
     if (type == 0) {
         var spreadSheetID = "1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc"; //LINEBOT_USER
-    } else if (type == 1) {
+    } else if (type == 1 || type == 2) {
         var spreadSheetID = "1iUJW05PMXwUzPqiXnv_JTEmSc4QMvSx66tVUKrodttk"; //LINEBOT_tarot_month
     }
     var spreadSheet = SpreadsheetApp.openById(spreadSheetID);
@@ -107,16 +122,22 @@ function get_info(type) {
     //=======================================================================
     var returnData = [];
     //=======================================================================
-    if (type == 0) {
-        var num = getRandom(0, lastRow - 1);
-        returnData.push(sheetData[num][0]);
-        returnData.push(sheetData[num][1]);
-        return returnData;
-    } else if (type == 1) {
-        for (var i = 0; i < 4; i++) {
-            returnData.push(sheetData[i][0]);
-        }
-        return returnData;
+
+    switch (type) {
+        case 0:
+            var num = getRandom(0, lastRow - 1);
+            returnData.push(sheetData[num][0]);
+            returnData.push(sheetData[num][1]);
+            return returnData;
+        case 1:
+            for (var i = 0; i < 4; i++) {
+                returnData.push(sheetData[i][0]);
+            }
+            return returnData;
+        case 2:
+            returnData.push(sheetData[+select][1]);
+            returnData.push(sheetData[+select][2]);
+            return returnData;
     }
 }
 
