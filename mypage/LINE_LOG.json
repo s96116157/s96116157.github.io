@@ -1,213 +1,27 @@
-[
-    {
-        "insertId": "-ool5pyf1la0sw",
-        "jsonPayload": {
-            "serviceContext": {
-                "service": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
-                "version": "GS:web"
-            },
-            "message": "{ type: 'message',\n  replyToken: '8b142f0ff55f4dedb5179dc7887e0ea5',\n  source: { userId: 'U25aa75e3ba330989f85018b2b0bbcef7', type: 'user' },\n  timestamp: 1604039976773,\n  mode: 'active',\n  message: { type: 'text', id: '12942421912645', text: '塔羅' } }"
-        },
-        "resource": {
-            "type": "app_script_function",
-            "labels": {
-                "project_id": "x-casing-138623",
-                "function_name": "",
-                "invocation_type": "custom function"
-            }
-        },
-        "timestamp": "2020-10-30T06:39:37.997Z",
-        "severity": "DEBUG",
-        "labels": {
-            "script.googleapis.com/project_key": "MT_ORbAu973PS3g5puHjzXRLoNXZsg87s",
-            "script.googleapis.com/deployment_id": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
-            "script.googleapis.com/process_id": "EAEA1GOzFLJsF6D0qe-Mv55ChWNMMIPjP-xRBKAbMDNU0yDaFfyA2ViSADcg-twV3TbvB1eXYqfXqKkSw20C5gil8ZQfsnUTWGIBA8Wj7nPg2Lu6GWZPBrpq5esZ9mUWQY9GFmh_P0RPyM4hbahXwahiylhAI16MnNcIMnA7vnwcM0F-jyPwhy4_FdCAYNLd3Fz0KrTlj5uCCbBA3u6rSiTjFCqD6Dxq0vikouqWJ3idPtKw8JVn5seGOV6tNlaSAhCcb6wKgFd0VmB70GTaWCdhMb-hrAg"
-        },
-        "logName": "projects/x-casing-138623/logs/script.googleapis.com%2Fconsole_logs",
-        "receiveTimestamp": "2020-10-30T06:39:38.882090714Z"
-    },
-    {
-        "insertId": "tpb48tf1irqct",
-        "jsonPayload": {
-            "serviceContext": {
-                "version": "GS:web",
-                "service": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s"
-            },
-            "message": "{ type: 'message',\n  replyToken: 'a8a90e2a802c48509b21d3e0811389af',\n  source: { userId: 'U25aa75e3ba330989f85018b2b0bbcef7', type: 'user' },\n  timestamp: 1604039974683,\n  mode: 'active',\n  message: { type: 'text', id: '12942421761894', text: '塔羅' } }"
-        },
-        "resource": {
-            "type": "app_script_function",
-            "labels": {
-                "function_name": "",
-                "project_id": "x-casing-138623",
-                "invocation_type": "custom function"
-            }
-        },
-        "timestamp": "2020-10-30T06:39:36.168Z",
-        "severity": "DEBUG",
-        "labels": {
-            "script.googleapis.com/project_key": "MT_ORbAu973PS3g5puHjzXRLoNXZsg87s",
-            "script.googleapis.com/deployment_id": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
-            "script.googleapis.com/process_id": "EAEA1GOzLQuhOe5rGfoZ7vdsgzaTI2gohuo0PpoMhRLeI7k1tRFjBlYXZTg5AZBvT0NwY9TpeCvm69oXvUPX4-Q0Oyy7hiHNMrKFlj848MEfKq2IO3l4_Gqwxx00vthbxvgW94T1cke3UJHzA_10q0kPNiJv-bk_EPXMHzFTKRVwu1OTTrj7KgLo-5SHWMJjqu6NdtWEG6mm_GjimtAvdgUHFslzD6u0ywfp_XZ08ftAW41ANdydD00voMErC3Ft0AWxwWLCg8YsTOYvO3UYzq-No44RUUw"
-        },
-        "logName": "projects/x-casing-138623/logs/script.googleapis.com%2Fconsole_logs",
-        "receiveTimestamp": "2020-10-30T06:39:36.817782388Z"
-    },
-    {
-        "insertId": "nvi71sf5rn07i",
-        "jsonPayload": {
-            "message": "{ type: 'unfollow',\n  source: { userId: 'Uef338b0a07a619a1b08860e13c47b1da', type: 'user' },\n  timestamp: 1604060183150,\n  mode: 'active' }",
-            "serviceContext": {
-                "version": "GS:web",
-                "service": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s"
-            }
-        },
-        "resource": {
-            "type": "app_script_function",
-            "labels": {
-                "project_id": "x-casing-138623",
-                "invocation_type": "custom function",
-                "function_name": ""
-            }
-        },
-        "timestamp": "2020-10-30T12:16:23.578Z",
-        "severity": "DEBUG",
-        "labels": {
-            "script.googleapis.com/deployment_id": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
-            "script.googleapis.com/process_id": "EAEA1GOy3fgeNcTHkAKXroQX63OvPLJOZQt5y7vm8NA2dN3GYy0e6w4iULls-m6sH8BLLYpQnFdSDr3zsIH8ipLG1vgHzAoCI6h3M-qDrFlzyxbGz17-0oDprpR0gfPB3tez5qrvOhTirWPk8rlVZK65ofJB4gL-zhLeB5eE2k9o1Ni0MosvqEIoEabqkJRr9NT7LMh5veCKDs5a85MM6dL7io-hF317QpyxVj_ZoijdaLBerArYXe1lGheQteaWX4XotmsxNxL020A6xFiBy-Nxu_lnuuQ",
-            "script.googleapis.com/project_key": "MT_ORbAu973PS3g5puHjzXRLoNXZsg87s"
-        },
-        "logName": "projects/x-casing-138623/logs/script.googleapis.com%2Fconsole_logs",
-        "receiveTimestamp": "2020-10-30T12:16:24.357438349Z"
-    },
-    {
-        "type": "bubble",
-        "body": {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-                {
-                    "type": "image",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip1.jpg",
-                    "size": "full",
-                    "aspectRatio": "2:3",
-                    "gravity": "top",
-                    "aspectMode": "cover"
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "Brown's T-shirts",
-                                    "size": "xl",
-                                    "color": "#ffffff",
-                                    "weight": "bold"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "box",
-                            "layout": "baseline",
-                            "contents": [
-                                {
-                                    "type": "text",
-                                    "text": "¥35,800",
-                                    "color": "#ebebeb",
-                                    "size": "sm",
-                                    "flex": 0
-                                },
-                                {
-                                    "type": "text",
-                                    "text": "¥75,000",
-                                    "color": "#ffffffcc",
-                                    "decoration": "line-through",
-                                    "gravity": "bottom",
-                                    "flex": 0,
-                                    "size": "sm"
-                                }
-                            ],
-                            "spacing": "lg"
-                        },
-                        {
-                            "type": "box",
-                            "layout": "vertical",
-                            "contents": [
-                                {
-                                    "type": "filler"
-                                },
-                                {
-                                    "type": "box",
-                                    "layout": "baseline",
-                                    "contents": [
-                                        {
-                                            "type": "filler"
-                                        },
-                                        {
-                                            "type": "icon",
-                                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip14.png"
-                                        },
-                                        {
-                                            "type": "text",
-                                            "text": "Add to cart",
-                                            "color": "#ffffff",
-                                            "flex": 0,
-                                            "offsetTop": "-2px"
-                                        },
-                                        {
-                                            "type": "filler"
-                                        }
-                                    ],
-                                    "spacing": "sm"
-                                },
-                                {
-                                    "type": "filler"
-                                }
-                            ],
-                            "borderWidth": "1px",
-                            "cornerRadius": "4px",
-                            "spacing": "sm",
-                            "borderColor": "#ffffff",
-                            "margin": "xxl",
-                            "height": "40px"
-                        }
-                    ],
-                    "position": "absolute",
-                    "offsetBottom": "0px",
-                    "offsetStart": "0px",
-                    "offsetEnd": "0px",
-                    "backgroundColor": "#03303Acc",
-                    "paddingAll": "20px",
-                    "paddingTop": "18px"
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": "SALE",
-                            "color": "#ffffff",
-                            "align": "center",
-                            "size": "xs",
-                            "offsetTop": "3px"
-                        }
-                    ],
-                    "position": "absolute",
-                    "cornerRadius": "20px",
-                    "offsetTop": "18px",
-                    "backgroundColor": "#ff334b",
-                    "offsetStart": "18px",
-                    "height": "25px",
-                    "width": "53px"
-                }
-            ],
-            "paddingAll": "0px"
+{
+    "insertId": "-u8eujnfab23kc",
+    "jsonPayload": {
+        "message": "[ { type: 'bubble',\n    body: \n     { type: 'box',\n       layout: 'vertical',\n       paddingAll: '0px',\n       backgroundColor: '#A79486FF',\n       contents: [Object] } },\n  { type: 'bubble',\n    body: \n     { type: 'box',\n       layout: 'vertical',\n       paddingAll: '0px',\n       backgroundColor: '#A79486FF',\n       contents: [Object] } },\n  { type: 'bubble',\n    body: \n     { type: 'box',\n       layout: 'vertical',\n       paddingAll: '0px',\n       backgroundColor: '#A79486FF',\n       contents: [Object] } },\n  { type: 'bubble',\n    body: \n     { type: 'box',\n       layout: 'vertical',\n       paddingAll: '0px',\n       backgroundColor: '#A79486FF',\n       contents: [Object] } } ]",
+        "serviceContext": {
+            "service": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
+            "version": "GS:web"
         }
-    }
-]
+    },
+    "resource": {
+        "type": "app_script_function",
+        "labels": {
+            "project_id": "x-casing-138623",
+            "function_name": "",
+            "invocation_type": "custom function"
+        }
+    },
+    "timestamp": "2020-11-01T03:09:07.697Z",
+    "severity": "DEBUG",
+    "labels": {
+        "script.googleapis.com/project_key": "MT_ORbAu973PS3g5puHjzXRLoNXZsg87s",
+        "script.googleapis.com/deployment_id": "AKfycbzJeZcW1b2raKIELueKJBUjeDkAP8ZysyfSSIGW7sK7_TN8g_s",
+        "script.googleapis.com/process_id": "EAEA1GOyAQXl41rVelqH9alrEAuqDh4zL3s6D0VeIkaM25EQ5JSIrfKQuUhwCcJUo9EY0XuTVK6nw_dlzxOE1Z0QXm5bBpkyVE_avrkIRnPmYmJnTs86OGb6p2dWDRpcKhYZdhG0AfPjKdCjkMFVCNSwfSpyXfbVrkuByfPNIYx4FLc2E6oZZy1ddpYIWG2NSJAuHbhankOO3E-kk0riF9Byd3pjtB96BrgBFGOGoeZ5gWVsQntd40mFerA21SZJK0KULNDBWoYXjP0_vRHyOxjG6qsWSAg"
+    },
+    "logName": "projects/x-casing-138623/logs/script.googleapis.com%2Fconsole_logs",
+    "receiveTimestamp": "2020-11-01T03:09:08.438207186Z"
+}

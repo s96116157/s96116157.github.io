@@ -38,23 +38,34 @@ function doPost(e) {
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     return;
                 case 'tarot_month':
-                    var returnData = get_info(1);
-                    return_txt = getJson(3);
-                    var x = { "type": "flex", "altText": "this is a flex message", "contents": {} };
-                    for (var i = 0; i < 4; i++) {
-                        return_txt["body"]["contents"][0]["url"] = 'https://s96116157.github.io/image/' + returnData[i] + '.jpg';
-                        //console.log('============ JSON ============')
-                        //console.log(return_txt["body"]["contents"][1]["contents"][0]["action"]);
-                        //return_txt["body"]["contents"][1]["contents"]["contents"]["action"]["data"] = i;
-                        x['contents'].push(return_txt);
-                    }
-                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, x);
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, tarot_month());
                     return;
             }
             return;
         default:
             return;
     }
+}
+
+function tarot_month() {
+    var returnData = get_info(1);
+    var return_txt = getJson(3);
+    var array_ = [4];
+
+    for (var i = 0; i < 4; i++) {
+        array_[i] = return_txt;
+    }
+
+    var x = { "type": "flex", "altText": "this is a flex message", "contents": { "type": "carousel", "contents": {} } };
+    x['contents']['contents'] = array_;
+    x = JSON.stringify(x);
+    x = JSON.parse(x);
+
+    for (var i = 0; i < 4; i++) {
+        var url_txt = 'https://s96116157.github.io/image/' + returnData[i] + '.jpg';
+        x['contents']['contents'][i]["body"]["contents"][0]["url"] = url_txt;
+    }
+    return x;
 }
 
 function getJson(num) {
@@ -101,7 +112,7 @@ function get_info(type) {
         return returnData;
     } else if (type == 1) {
         for (var i = 0; i < 4; i++) {
-            returnData.push(sheetData[0][i]);
+            returnData.push(sheetData[i][0]);
         }
         return returnData;
     }
