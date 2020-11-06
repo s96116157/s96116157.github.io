@@ -42,14 +42,16 @@ var vm = new Vue({
             fetch(url).then(res => res.json()).then(lessons => {
                 data = lessons['feed']['entry'];
                 var len = data.length;
+                var x = 0;
                 //if (len > 10) { len = 10; }
-                for (i = 0; i < len; i++) {
+                for (i = len - 1; i >= 0; i--) {
+                    x++;
                     var _info = data[i]['gsx$info']['$t'];
                     var _re = data[i]['gsx$return']['$t'];
                     if (_info == 0) { _info = ''; }
                     if (_re == 0) { _re = ''; }
                     this.list.push({
-                        no: i + 1,
+                        no: x,
                         time: data[i]['gsx$time']['$t'],
                         info: _info,
                         re: _re
