@@ -40,7 +40,10 @@ var vm = new Vue({
             var url = 'https://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
 
 
-            fetch(url).then(res => res.json()).then(lessons => this.lessons = lessons);
+            fetch(url).then(res => res.json()).then(lessons => {
+                this.lessons = lessons['columns'];
+                console.log(this.lessons);
+            });
 
 
 
