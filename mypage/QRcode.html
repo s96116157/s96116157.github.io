@@ -30,31 +30,23 @@
                     <table class="table table-bordered">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">編號</th>
-                                <th scope="col">簽到時間</th>
-                                <th scope="col">註記</th>
-                                <th scope="col">回應</th>
+                                <th v-for="header in headers">
+                                    ${header}
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <v-tr></v-tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                            <tr v-if="list.length === 0">
+                                <td>No data</td>
+                                <td>No data</td>
+                                <td>No data</td>
+                                <td>No data</td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
+                            <tr v-else v-for="item in list">
+                                <td>${item.no}</td>
+                                <td>${item.time}</td>
+                                <td>${item.info}</td>
+                                <td>${item.re}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -84,14 +76,19 @@
                                         <p>日期：${ data }</p>
                                         <p>時間：${ time }</p>
                                         <p>註記：${ info }</p>
-                                        <textarea placeholder="留言" class="form-control" rows="3"></textarea>
+                                        <textarea placeholder="留言 50 字以內" class="form-control" rows="3"
+                                            maxlength="50"></textarea>
                                     </div>
                                     <div class="col-2"></div>
                                 </div>
                             </div>
                             <div class="modal-footer ">
                                 <div class="text-center mx-auto">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">簽到</button>
+                                    <button type="button" v-on:click.once="show_info" class="btn btn-success"
+                                        data-dismiss="modal">簽到</button>
+
+                                    <button type="button" v-on:click.once="_info" class="btn btn-secondary"
+                                        data-dismiss="modal">離開</button>
                                 </div>
                             </div>
                         </div>
