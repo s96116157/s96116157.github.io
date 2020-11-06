@@ -36,7 +36,7 @@ var vm = new Vue({
         },
         _info() {
             this.list = [];
-            var url = 'http://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
+            var url = 'https://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
             $.getJSON(url, function (d) {
                 console.log("=========== getJSON ==============");
                 console.log(d);
