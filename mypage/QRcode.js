@@ -6,7 +6,7 @@ var vm = new Vue({
     el: '#app',
     delimiters: ['${', '}'],
     data: {
-        location: 'Mona的房間',
+        location: '',
         data: '',
         time: '',
         info: ''
@@ -23,11 +23,20 @@ var vm = new Vue({
         var seconds = padDate(date.getSeconds());
         this.data = year + '/' + month + '/' + day + '/';
         this.time = hours + ':' + minutes + ':' + seconds;
+        this.location = 'Mona的房間';
         this.info = '有事請在下方留言，謝謝。'
     }
 });
 
 start();
 function start() {
-    $("#show_card_info").modal();
+    $("#creat_info").modal();
+}
+
+function getJson() {
+    var url = 'http://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
+    $.getJSON(url, function (data) {
+        console.log(data);
+    });
+    
 }

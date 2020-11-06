@@ -37,6 +37,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <v-tr></v-tr>
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Mark</td>
@@ -66,8 +67,8 @@
                     </div>
                 </div>
                 <!-- Modal -->
-                <div class="modal fade" id="show_card_info" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="creat_info" tabindex="-1" role="dialog" aria-hidden="true"
+                    data-backdrop="static" data-keyboard="false">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header" style="background-color:#388dee">
@@ -90,8 +91,27 @@
                             </div>
                             <div class="modal-footer ">
                                 <div class="text-center mx-auto">
-                                    <button type="button" class="btn btn-secondary">簽到</button>
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">簽到</button>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div id="show_ok" class="modal fade" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-confirm">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-center" style="background-color:#3ebe78">
+                                <img src="icon/circle-check-white.svg" style="height:125px">
+                            </div>
+                            <div class="modal-body text-center">
+                                <div style="height: 25px;"></div>
+                                <h3>簽到完成</h3>
+                                <div style="height: 25px;"></div>
+                                <button class="btn btn-success" data-dismiss="modal" style="width:125px">
+                                    <span>OK</span>
+                                </button>
                             </div>
                         </div>
                     </div>
