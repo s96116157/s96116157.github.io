@@ -37,19 +37,20 @@ var vm = new Vue({
         _info() {
             this.list = [];
             //var url = 'https://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
-            var url = 'https://s96116157.github.io/mypage/QRcode.json';
+            //var url = 'https://s96116157.github.io/mypage/QRcode.json';
+            var url = 'https://spreadsheets.google.com/feeds/list/1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48/od6/public/values?alt=json';
             fetch(url).then(res => res.json()).then(lessons => {
-                data = lessons['columns'];
-                var len = data['info'].length;
-                if (len > 10) { len = 10; }
+                data = lessons['feed']['entry'];
+                var len = data.length;
+                //if (len > 10) { len = 10; }
                 for (i = 0; i < len; i++) {
-                    var _info = data['info'][i];
-                    var _re = data['return'][i];
+                    var _info = data[i]['gsx$info']['$t'];
+                    var _re = data[i]['gsx$return']['$t'];
                     if (_info == 0) { _info = ''; }
                     if (_re == 0) { _re = ''; }
                     this.list.push({
                         no: i + 1,
-                        time: data['time'][i],
+                        time: data[i]['gsx$time']['$t'],
                         info: _info,
                         re: _re
                     });
