@@ -36,7 +36,8 @@ var vm = new Vue({
         },
         _info() {
             this.list = [];
-            var url = 'https://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
+            //var url = 'https://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
+            var url = 'https://s96116157.github.io/mypage/QRcode.json';
             fetch(url).then(res => res.json()).then(lessons => {
                 data = lessons['columns'];
                 var len = data['info'].length;
