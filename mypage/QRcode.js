@@ -12,7 +12,8 @@ var vm = new Vue({
         location: '',
         data: '',
         time: '',
-        info: ''
+        info: '',
+        info_txt: ''
     },
     methods: {
         show_info() {
@@ -20,7 +21,7 @@ var vm = new Vue({
             $.ajax({
                 url: url,
                 data: {
-                    "info": '',
+                    "info": this.info_txt,
                     "re": '',
                     "time": this.data + ' ' + this.time
                 },
@@ -34,6 +35,7 @@ var vm = new Vue({
             this._info();
         },
         _info() {
+            this.list = [];            
             var url = 'http://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
             fetch(url).then(res => res.json().then(lessons => {
                 this.lessons = lessons;
