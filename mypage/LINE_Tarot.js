@@ -10,7 +10,7 @@ function doPost(e) {
 
     if (typeof replyToken === 'undefined') { return; }
 
-    console.log('============ 202010312210 ============');
+    console.log('============ 202011041552 ============');
     console.log(msg.events[0]);
 
     switch (userType) {
@@ -50,16 +50,10 @@ function doPost(e) {
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     return;
                 case 'tarot_month':
-                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, tarot_month());
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, get_sheet("202009", 3, 0));
                     return;
                 case 'm_':
-                    var returnData = get_info(2, x);
-                    return_txt = getJson(2);
-                    return_txt['contents']['hero']['url'] = 'https://s96116157.github.io/image/' + returnData[0] + '.jpg';
-                    return_txt['contents']['hero']['aspectRatio'] = '1:1';
-                    return_txt['contents']['body']['contents'][0]['text'] = '每月運勢';
-                    return_txt['contents']['body']['contents'][1]['text'] = returnData[1];
-                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, get_sheet("202009", 2, x));
                     return;
             }
             return;
@@ -75,7 +69,7 @@ function tarot_month() {
         var url_txt = 'https://s96116157.github.io/image/' + returnData[i] + '.jpg';
         return_txt['contents']['contents'][i]["body"]["contents"][0]["url"] = url_txt;
     }
-    return x;
+    return return_txt;
 }
 
 function getJson(num) {
@@ -124,7 +118,7 @@ function get_info(type, select) {
             return returnData;
         case 1:
             for (var i = 0; i < 4; i++) {
-                returnData.push(sheetData[i][0]);
+                returnData.push(sheetData[i][1]);
             }
             return returnData;
         case 2:
@@ -139,31 +133,257 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-
-
 //==============================================================
-
 
 function speed_tarot_month() {
     var json_txt = ['c_202009_001', 'c_202009_002', 'c_202009_003', 'c_202009_004'];
     var returnData = json_txt;
-    var return_txt = getJson(3);
-    var array_ = [4];
-
-    for (var i = 0; i < 4; i++) {
-        array_[i] = return_txt;
-    }
-
-    var x = { "type": "flex", "altText": "this is a flex message", "contents": { "type": "carousel", "contents": {} } };
-    x['contents']['contents'] = array_;
-    x = JSON.stringify(x);
-    x = JSON.parse(x);
-
+    //var return_txt = getJson(3);
+    var return_txt = xx;
     for (var i = 0; i < 4; i++) {
         var url_txt = 'https://s96116157.github.io/image/' + returnData[i] + '.jpg';
-        var data_txt = "m_" + i.toString();
-        x['contents']['contents'][i]["body"]["contents"][0]["url"] = url_txt;
-        x['contents']['contents'][i]["body"]["contents"][1]["contents"][0]["contents"][0]["action"]["data"] = data_txt;
+        return_txt['contents']['contents'][i]["body"]["contents"][0]["url"] = url_txt;
     }
-    return x;
+    return return_txt;
+}
+
+function get_sheet(month, type, num) {
+    var url = "http://gsx2json.com/api?id=1iUJW05PMXwUzPqiXnv_JTEmSc4QMvSx66tVUKrodttk&rows=false&q=" + month;
+    var response = UrlFetchApp.fetch(url);
+    var returnData = JSON.parse(response.getContentText());
+    var return_txt = getJson(type);
+
+    if (type == 3) {
+        for (var i = 0; i < 4; i++) {
+            var url_txt = 'https://s96116157.github.io/image/' + returnData["columns"]["clink"][i] + '.jpg';
+            return_txt['contents']['contents'][i]["body"]["contents"][0]["url"] = url_txt;
+        }
+    }
+    else if (type == 2) {
+        console.log(returnData);
+        return_txt['contents']['hero']['url'] = 'https://s96116157.github.io/image/' + returnData["columns"]["mlink"][num] + '.jpg';
+        return_txt['contents']['hero']['aspectRatio'] = '1:1';
+        return_txt['contents']['body']['contents'][0]['text'] = '每月運勢';
+        return_txt['contents']['body']['contents'][1]['text'] = returnData["columns"]["info"][num];
+    }
+    return return_txt;
+}
+
+
+var xx = {
+    "type": "flex",
+    "altText": "this is a flex message",
+    "contents": {
+        "type": "carousel",
+        "contents": [
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "paddingAll": "0px",
+                    "backgroundColor": "#A79486FF",
+                    "contents": [
+                        {
+                            "type": "image",
+                            "url": "",
+                            "size": "full",
+                            "aspectRatio": "40:57",
+                            "aspectMode": "cover"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "offsetBottom": "0px",
+                            "offsetStart": "0px",
+                            "offsetEnd": "0px",
+                            "paddingAll": "10px",
+                            "backgroundColor": "#00000070",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "height": "40px",
+                                    "borderWidth": "1px",
+                                    "borderColor": "#FFFFFFFF",
+                                    "cornerRadius": "5px",
+                                    "contents": [
+                                        {
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "選擇",
+                                                "data": "m_0"
+                                            },
+                                            "color": "#FFFFFF00",
+                                            "height": "sm",
+                                            "style": "primary",
+                                            "gravity": "bottom"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "paddingAll": "0px",
+                    "backgroundColor": "#A79486FF",
+                    "contents": [
+                        {
+                            "type": "image",
+                            "url": "",
+                            "size": "full",
+                            "aspectRatio": "40:57",
+                            "aspectMode": "cover"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "offsetBottom": "0px",
+                            "offsetStart": "0px",
+                            "offsetEnd": "0px",
+                            "paddingAll": "10px",
+                            "backgroundColor": "#00000070",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "height": "40px",
+                                    "borderWidth": "1px",
+                                    "borderColor": "#FFFFFFFF",
+                                    "cornerRadius": "5px",
+                                    "contents": [
+                                        {
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "選擇",
+                                                "data": "m_1"
+                                            },
+                                            "color": "#FFFFFF00",
+                                            "height": "sm",
+                                            "style": "primary",
+                                            "gravity": "bottom"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "paddingAll": "0px",
+                    "backgroundColor": "#A79486FF",
+                    "contents": [
+                        {
+                            "type": "image",
+                            "url": "",
+                            "size": "full",
+                            "aspectRatio": "40:57",
+                            "aspectMode": "cover"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "offsetBottom": "0px",
+                            "offsetStart": "0px",
+                            "offsetEnd": "0px",
+                            "paddingAll": "10px",
+                            "backgroundColor": "#00000070",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "height": "40px",
+                                    "borderWidth": "1px",
+                                    "borderColor": "#FFFFFFFF",
+                                    "cornerRadius": "5px",
+                                    "contents": [
+                                        {
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "選擇",
+                                                "data": "m_2"
+                                            },
+                                            "color": "#FFFFFF00",
+                                            "height": "sm",
+                                            "style": "primary",
+                                            "gravity": "bottom"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "bubble",
+                "size": "micro",
+                "body": {
+                    "type": "box",
+                    "layout": "vertical",
+                    "paddingAll": "0px",
+                    "backgroundColor": "#A79486FF",
+                    "contents": [
+                        {
+                            "type": "image",
+                            "url": "",
+                            "size": "full",
+                            "aspectRatio": "40:57",
+                            "aspectMode": "cover"
+                        },
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "offsetBottom": "0px",
+                            "offsetStart": "0px",
+                            "offsetEnd": "0px",
+                            "paddingAll": "10px",
+                            "backgroundColor": "#00000070",
+                            "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "height": "40px",
+                                    "borderWidth": "1px",
+                                    "borderColor": "#FFFFFFFF",
+                                    "cornerRadius": "5px",
+                                    "contents": [
+                                        {
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "選擇",
+                                                "data": "m_3"
+                                            },
+                                            "color": "#FFFFFF00",
+                                            "height": "sm",
+                                            "style": "primary",
+                                            "gravity": "bottom"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 }

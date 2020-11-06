@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QRcode</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="QRcode.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class='wrapper'>
+        <header style="height: 100px;background-color:#2565ae" class='header'>
+            <div class="row">
+                <h1></h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center mx-auto d-block" style="color:white">
+                        智慧巡邏箱
+                    </h1>
+                </div>
+            </div>
+        </header>
+        <main class="main-content">
+            <div class="container-fluid" id="app">
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">編號</th>
+                                <th scope="col">簽到時間</th>
+                                <th scope="col">註記</th>
+                                <th scope="col">回應</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div style="width: 50px;">
+                            <h1></h1>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="show_card_info" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color:#388dee">
+                                <div class="text-center mx-auto" style="color:white">
+                                    <h3>簽到資訊</h3>
+                                </div>
+                            </div>
+                            <div class="modal-body ">
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col-8">
+                                        <p>地點：${ location }</p>
+                                        <p>日期：${ data }</p>
+                                        <p>時間：${ time }</p>
+                                        <p>註記：${ info }</p>
+                                        <textarea placeholder="留言" class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer ">
+                                <div class="text-center mx-auto">
+                                    <button type="button" class="btn btn-secondary">簽到</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h1></h1>
+            </div>
+
+        </main>
+        <footer class="bd-footer text-muted footer" style="height: 50px;background-color:#2565ae">
+        </footer>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/vue.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="QRcode.js"></script>
+    </div>
+</body>
+
+</html>
