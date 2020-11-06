@@ -36,29 +36,17 @@ var vm = new Vue({
         },
         _info() {
             this.list = [];
+            _list = [];
             var url = 'https://gsx2json.com/api?id=1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48&rows=false';
+
+
+            fetch(url).then(res => res.json()).then(lessons => this.lessons = lessons);
+
+
+
+
             $.getJSON(url, function (d) {
-                console.log("=========== getJSON ==============");
-                console.log(d);
-                $.each(d.rows, function (i, r) {
-                    dataPoints.push({
-                        dt: new Date(r.timestamp),
-                        lt: r.latitude
-                    });
-                    console.log("===========");
-                    console.log(r);
-                    console.log("===========");
-                });
-            })
-
-
-            var data = $.getJSON(url);
-            console.log("===========");
-            console.log(data);
-            console.log(data.columns);
-            console.log("===========");
-            $.getJSON(url, function (data) {
-                data = data['columns'];
+                data = d['columns'];
                 var len = data['info'].length;
                 if (len > 10) { len = 10; }
                 for (i = 0; i < len; i++) {
@@ -66,14 +54,16 @@ var vm = new Vue({
                     var _re = data['return'][i];
                     if (_info == 0) { _info = ''; }
                     if (_re == 0) { _re = ''; }
-                    this.list.push({
+                    _list.push({
                         no: i + 1,
                         time: data['time'][i],
                         info: _info,
                         re: _re
                     });
                 }
-            });
+                console.log(_list);
+                return _list;
+            })
         }
     },
     mounted: function () {
