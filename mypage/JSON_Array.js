@@ -41,6 +41,19 @@ function str_sub() {
             json_txt.push(get_json_txt.substr(x, 50));
             x = x + 50;
         }
+        var txt2 = get_json_txt.split("。").join('\n');
+        var txt3 = get_json_txt.split(19).join('\n');
+        console.log('==========txt2==============');
+        console.log(txt2);
+        console.log(txt3);
+
+        var a = [], i = -1;
+        while ((i = get_json_txt.indexOf("。", i + 1)) >= 0) a.push(i);
+        console.log('========== a =============');
+
+        console.log(a);
+        //console.log(get_json_txt.indexOf("。"));
+        //console.log(get_json_txt.indexOf("。", 19));
         console.log(json_txt);
     });
 }

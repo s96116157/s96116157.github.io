@@ -28,8 +28,8 @@ function doPost(e) {
             }
 
             if (userMessage.indexOf('test') != -1) {
-                mon_re_bubble_txt(0);
-                //sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, speed_tarot_month());
+                //mon_re_bubble_txt(0);
+                sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, mon_re_bubble_txt(1));
                 return;
             }
 
@@ -398,77 +398,110 @@ function mon_bubble_txt(link) {
     return txt;
 }
 
-function mon_re_bubble_txt(re) {
+function mon_re_bubble_txt(re) {  
+  //var url = 'https://spreadsheets.google.com/feeds/list/1iUJW05PMXwUzPqiXnv_JTEmSc4QMvSx66tVUKrodttk/od6/public/values?alt=json';    
+    var url = 'https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values?alt=json';  
+    var response = UrlFetchApp.fetch(url);
+    var info_txt = JSON.parse(response.getContentText());
+    var data = info_txt['feed']['entry'];
+    var img_url = data[re]['gsx$dlink']['$t'];
+  
     var txt = {
         "type": "flex",
         "altText": "this is a flex message",
         "contents": {
-            "type": "bubble",
-            "hero": {
-                "type": "image",
-                "url": "",
-                "size": "full",
-                "aspectRatio": "40:57",
-                "aspectMode": "cover",
-                "backgroundColor": "#FFFFFFFF"
-            },
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "backgroundColor": "#A79486FF",
-                "contents": [
-                    {
-                        "type": "text",
-                        "text": "當日指引",
-                        "weight": "bold",
-                        "size": "xl",
-                        "color": "#FFFFFFFF",
-                        "contents": []
-                    }
-                ]
-            },
-            "footer": {
-                "type": "box",
-                "layout": "vertical",
-                "flex": 0,
-                "spacing": "sm",
-                "backgroundColor": "#A79486FF",
-                "contents": [
-                    {
-                        "type": "filler"
+            "type": "carousel",
+            "contents": [
+                {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": "https://s96116157.github.io/image/" + img_url +".jpg",
+                        "size": "full",
+                        "aspectRatio": "40:57",
+                        "aspectMode": "cover",
+                        "backgroundColor": "#FFFFFFFF"
                     },
-                    {
-                        "type": "text",
-                        "text": "輸入「塔羅」或點選下方\n「點我看更多功能」將會為您服務哦！",
-                        "size": "sm",
-                        "color": "#FFFFFFFF",
-                        "align": "center",
-                        "wrap": true,
-                        "contents": []
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "backgroundColor": "#A79486FF",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "當日指引",
+                                "weight": "bold",
+                                "size": "xl",
+                                "color": "#FFFFFFFF",
+                                "align": "center",
+                                "contents": []
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 0,
+                        "spacing": "sm",
+                        "backgroundColor": "#A79486FF",
+                        "contents": [
+                            {
+                                "type": "filler"
+                            },
+                            {
+                                "type": "text",
+                                "text": "輸入「塔羅」或點選下方\n「點我看更多功能」將會為您服務哦！",
+                                "size": "sm",
+                                "color": "#FFFFFFFF",
+                                "align": "center",
+                                "wrap": true,
+                                "contents": []
+                            }
+                        ]
                     }
-                ]
-            }
+                }
+            ]
+
         }
     }
 
-    var url = 'https://spreadsheets.google.com/feeds/list/1iUJW05PMXwUzPqiXnv_JTEmSc4QMvSx66tVUKrodttk/od6/public/values?alt=json';
     var json_txt = [];
-    var get_json_txt = "";
-    var len;
+    var get_json_txt = data[re]['gsx$info']['$t'];
+    json_txt = data[re]['gsx$array']['$t'].split(","); 
+    var len = json_txt.length;
     var x = 0;
-    var response = UrlFetchApp.fetch(url);
-    var info_txt = JSON.parse(response.getContentText());
-    var data = info_txt['feed']['entry'];
-    get_json_txt = data[re]['gsx$info']['$t'];
-    len = get_json_txt.length / 100;
+
+    var a = [], y = -1;
+    while ((y = get_json_txt.indexOf("。", y + 1)) >= 0) a.push(y);
+
     for (i = 0; i < len; i++) {
-        json_txt.push(get_json_txt.substr(x, 100));
-        x = x + 100;
+        var o = get_json_txt.substr(x, parseInt(json_txt[i], 10) - x + 1);
+        txt['contents']['contents'].push(bubble_txt(o));
+
+        console.log(o);
+        x = parseInt(json_txt[i], 10) + 1;
     }
-    console.log("==========================================");
-    console.log(json_txt.length);
-    console.log(json_txt[0]);
-    console.log(json_txt[1]);
-    console.log(json_txt[2]);
-    console.log("==========================================");
+    return txt;
+}
+
+function bubble_txt(txt) {
+    var bubble = {
+        "type": "bubble",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "backgroundColor": "#A79486FF",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": txt,
+                    "size": "md",
+                    "color": "#FFFFFFFF",
+                    "wrap": true,
+                    "contents": []
+                }
+            ]
+        }
+    }
+    return bubble;
 }
