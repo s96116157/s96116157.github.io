@@ -29,7 +29,7 @@ function doPost(e) {
 
             if (userMessage.indexOf('test') != -1) {
                 //mon_re_bubble_txt(0);
-                sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, mon_re_bubble_txt(1));
+                sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, mon_re_bubble_txt(userId));
                 return;
             }
 
@@ -37,18 +37,18 @@ function doPost(e) {
         case 'postback':
             userMessage = msg.events[0].postback.data;
             if (userMessage.indexOf('m_') != -1) {
-                ;
                 var x = userMessage.charAt(2);
                 userMessage = userMessage.substr(0, 2);
             }
 
             switch (userMessage) {
                 case 'tarot_day':
-                    var returnData = get_info(0, '');
-                    return_txt = getJson(2);
-                    return_txt['contents']['hero']['url'] = 'https://s96116157.github.io/image/' + returnData[0] + '.jpg';
-                    return_txt['contents']['body']['contents'][1]['text'] = returnData[1];
-                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    //var returnData = get_info(0, '');
+                    //return_txt = getJson(2);
+                    //return_txt['contents']['hero']['url'] = 'https://s96116157.github.io/image/' + returnData[0] + '.jpg';
+                    //return_txt['contents']['body']['contents'][1]['text'] = returnData[1];
+                    //sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, mon_re_bubble_txt(userId));
                     return;
                 case 'tarot_month':
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, speed_tarot_month());
@@ -398,14 +398,20 @@ function mon_bubble_txt(link) {
     return txt;
 }
 
-function mon_re_bubble_txt(re) {  
-  //var url = 'https://spreadsheets.google.com/feeds/list/1iUJW05PMXwUzPqiXnv_JTEmSc4QMvSx66tVUKrodttk/od6/public/values?alt=json';    
-    var url = 'https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values?alt=json';  
+function mon_re_bubble_txt(_userID) {
+    _userID = _userID.substr(_userID.length - 2, 2);
+    var id = parseInt(_userID, 16);
+    var dd = parseInt(Utilities.formatDate(new Date(), "GMT+8", "dd"), 10);
+
+    //var url = 'https://spreadsheets.google.com/feeds/list/1iUJW05PMXwUzPqiXnv_JTEmSc4QMvSx66tVUKrodttk/od6/public/values?alt=json';    
+    var url = 'https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values?alt=json';
     var response = UrlFetchApp.fetch(url);
     var info_txt = JSON.parse(response.getContentText());
     var data = info_txt['feed']['entry'];
+    var re = (id + dd) % data.length;
+    console.log((id + dd) % data.length);
     var img_url = data[re]['gsx$dlink']['$t'];
-  
+
     var txt = {
         "type": "flex",
         "altText": "this is a flex message",
@@ -416,9 +422,9 @@ function mon_re_bubble_txt(re) {
                     "type": "bubble",
                     "hero": {
                         "type": "image",
-                        "url": "https://s96116157.github.io/image/" + img_url +".jpg",
+                        "url": "https://s96116157.github.io/image/" + img_url + ".jpg",
                         "size": "full",
-                        "aspectRatio": "40:57",
+                        "aspectRatio": "40:50",
                         "aspectMode": "cover",
                         "backgroundColor": "#FFFFFFFF"
                     },
@@ -467,18 +473,20 @@ function mon_re_bubble_txt(re) {
 
     var json_txt = [];
     var get_json_txt = data[re]['gsx$info']['$t'];
-    json_txt = data[re]['gsx$array']['$t'].split(","); 
+    //console.log("======== get_json_txt.length ========");
+    //console.log(get_json_txt.length);
+    //console.log("======== get_json_txt.length ========");
+    json_txt = data[re]['gsx$array']['$t'].split(",");
     var len = json_txt.length;
     var x = 0;
 
-    var a = [], y = -1;
-    while ((y = get_json_txt.indexOf("。", y + 1)) >= 0) a.push(y);
+    //var a = [], y = -1;
+    //while ((y = get_json_txt.indexOf("。", y + 1)) >= 0) a.push(y);
 
     for (i = 0; i < len; i++) {
         var o = get_json_txt.substr(x, parseInt(json_txt[i], 10) - x + 1);
         txt['contents']['contents'].push(bubble_txt(o));
-
-        console.log(o);
+        //console.log(o);
         x = parseInt(json_txt[i], 10) + 1;
     }
     return txt;
