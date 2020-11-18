@@ -3,7 +3,8 @@
 var x = { "type": "flex", "altText": "this is a flex message", "contents": { "type": "carousel", "contents": {} } };
 var array_ = [];
 //getJson(0);
-str_sub();
+//str_sub();
+number();
 function getJson(num) {
     var y = x;
     // 0 = 追隨好友, 1 = 選擇想要的占卜項目
@@ -23,6 +24,12 @@ function getJson(num) {
         //console.log(data[3]["body"]["contents"][1]["contents"][0]["contents"][0]["action"]["data"]);
 
     })
+}
+
+function number() {
+    var x = 'da';
+    var y = parseInt(x, 16);
+    console.log(y % 24);
 }
 
 function str_sub() {
