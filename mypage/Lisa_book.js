@@ -18,9 +18,17 @@ function doPost(e) {
         case 'unfollow':
             return;
         case 'message':
-            return_txt = get_story();
-            //return_txt = get_follow_bubble();
-            sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+            userMessage = msg.events[0].message.text;
+            switch (userMessage) {
+                case 'dark':
+                    return_txt = get_story(1);
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    return;
+                case 'book':
+                    return_txt = get_story(0);
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    return;
+            }
             return;
         case 'postback':
             return;
@@ -49,7 +57,7 @@ function get_follow_bubble() {
     var url = 'https://scontent.ftpe7-2.fna.fbcdn.net/v/t31.0-8/460837_281453208617694_470224812_o.jpg?_nc_cat=109&ccb=2&_nc_sid=de6eea&_nc_ohc=ajR8OvwytxIAX8tAg6b&_nc_ht=scontent.ftpe7-2.fna&oh=d3ab36cd41a7c2112157572bfe7c655f&oe=5FD94BE0';
     var txt = {
         "type": "flex",
-        "altText": "this is a flex message",
+        "altText": "about",
         "contents": {
             "type": "bubble",
             "hero": {
@@ -95,7 +103,7 @@ function get_follow_bubble() {
                     },
                     {
                         "type": "text",
-                        "text": "輸入「塔羅」或點選下方\n「點我看更多功能」將會為您服務哦！",
+                        "text": "「點我看更多功能」將會為您服務哦！",
                         "size": "sm",
                         "color": "#FFFFFFFF",
                         "align": "center",
@@ -109,10 +117,21 @@ function get_follow_bubble() {
     return txt;
 }
 
-function get_story() {
+function get_story(type) {
+    var color = ['#F9F3E2FF', '#594136FF'];
+    var url = 'https://s96116157.github.io/Lisa/20201119_002.jpg';
+    var title = 'LET ME IN !';
+    var txt = "不知道怪獸吞下我的時候\n\n會不會噎到\n\n會不會有人用哈姆立克法\n\n把我救出來";
+
+    if (type == 1) {
+        color[0] = '#000000FF';
+        color[1] = '#FFFFFFFF';
+        url = 'https://s96116157.github.io/Lisa/Dark_001_1.jpg';
+    }
+
     var txt = {
         "type": "flex",
-        "altText": "this is a flex message",
+        "altText": "Have one's story",
         "contents": {
             "type": "carousel",
             "contents": [
@@ -120,11 +139,10 @@ function get_story() {
                     "type": "bubble",
                     "hero": {
                         "type": "image",
-                        "url": "https://s96116157.github.io/Lisa/20201119_002.jpg",
+                        "url": url,
                         "size": "full",
                         "aspectRatio": "40:55",
-                        "aspectMode": "cover",
-                        "backgroundColor": "#FFFFFFFF"
+                        "aspectMode": "cover"
                     }
                 },
                 {
@@ -134,14 +152,14 @@ function get_story() {
                         "type": "box",
                         "layout": "vertical",
                         "flex": 0,
-                        "backgroundColor": "#FBF7ECFF",
+                        "backgroundColor": color[0],
                         "contents": [
                             {
                                 "type": "text",
-                                "text": "LET ME IN !",
+                                "text": title,
                                 "weight": "bold",
-                                "size": "lg",
-                                "color": "#6A514AFF",
+                                "size": "xl",
+                                "color": color[1],
                                 "align": "center",
                                 "contents": []
                             }
@@ -150,13 +168,13 @@ function get_story() {
                     "body": {
                         "type": "box",
                         "layout": "vertical",
-                        "backgroundColor": "#FBF7ECFF",
+                        "backgroundColor": color[0],
                         "contents": [
                             {
                                 "type": "text",
-                                "text": "不知道怪獸吞下我的時候\n\n會不會噎到\n\n會不會有人用哈姆立克法\n\n把我救出來",
+                                "text": txt,
                                 "size": "md",
-                                "color": "#6A514AFF",
+                                "color": color[1],
                                 "align": "center",
                                 "wrap": true,
                                 "contents": []
