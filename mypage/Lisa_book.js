@@ -18,7 +18,8 @@ function doPost(e) {
         case 'unfollow':
             return;
         case 'message':
-            return_txt = get_follow_bubble();
+            return_txt = get_story();
+            //return_txt = get_follow_bubble();
             sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             return;
         case 'postback':
@@ -103,6 +104,67 @@ function get_follow_bubble() {
                     }
                 ]
             }
+        }
+    };
+    return txt;
+}
+
+function get_story() {
+    var txt = {
+        "type": "flex",
+        "altText": "this is a flex message",
+        "contents": {
+            "type": "carousel",
+            "contents": [
+                {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": "https://s96116157.github.io/Lisa/20201119_002.jpg",
+                        "size": "full",
+                        "aspectRatio": "40:55",
+                        "aspectMode": "cover",
+                        "backgroundColor": "#FFFFFFFF"
+                    }
+                },
+                {
+                    "type": "bubble",
+                    "direction": "ltr",
+                    "header": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 0,
+                        "backgroundColor": "#FBF7ECFF",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "LET ME IN !",
+                                "weight": "bold",
+                                "size": "lg",
+                                "color": "#6A514AFF",
+                                "align": "center",
+                                "contents": []
+                            }
+                        ]
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "backgroundColor": "#FBF7ECFF",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "不知道怪獸吞下我的時候\n\n會不會噎到\n\n會不會有人用哈姆立克法\n\n把我救出來",
+                                "size": "md",
+                                "color": "#6A514AFF",
+                                "align": "center",
+                                "wrap": true,
+                                "contents": []
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     };
     return txt;
