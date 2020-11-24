@@ -20,15 +20,9 @@ function doPost(e) {
         case 'message':
             userMessage = msg.events[0].message.text;
             switch (userMessage) {
-                case 'book':
-                    return_txt = get_story(0);
-                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-                    return;
-                case 'dark':
-                    return_txt = get_story(1);
-                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
-                    return;
                 case 'Story':
+                    return_txt = get_book_list();
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     return;
                 case 'About':
                     return_txt = get_follow_bubble();
@@ -39,6 +33,9 @@ function doPost(e) {
             }
             return;
         case 'postback':
+            userMessage = msg.events[0].postback.data;
+            return_txt = get_story(userMessage);
+            sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
             return;
         default:
             return;
@@ -126,27 +123,41 @@ function get_follow_bubble() {
 }
 
 function get_book_list() {
-    var url = 'https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values?alt=json';
+    var id = '1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs';
+    var url = 'https://spreadsheets.google.com/feeds/list/' + id + '/od6/public/values?alt=json';
     var response = UrlFetchApp.fetch(url);
     var info_txt = JSON.parse(response.getContentText());
     var data = info_txt['feed']['entry'];
+    var len = data.length;
+    var txt = {
+        "type": "flex",
+        "altText": "Choose Your Story.",
+        "contents": { "type": "carousel", "contents": [] }
+    }
+
+    for (var i = 0; i < len; i++) {
+        txt["contents"]["contents"].push(get_card_bubble(data[i]['gsx$id']['$t'], i));
+    }
+
+    return txt;
 }
 
 function get_story(type) {
-    var color = ['#F9F3E2FF', '#594136FF'];
-    var url = 'https://s96116157.github.io/Lisa/20201119_002.jpg';
-    var title = 'LET ME IN !';
-    var txt = "不知道怪獸吞下我的時候\n\n會不會噎到\n\n會不會有人用哈姆立克法\n\n把我救出來";
+    type = parseInt(type);
+    var id = '1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs';
+    var url = 'https://spreadsheets.google.com/feeds/list/' + id + '/od6/public/values?alt=json';
+    var response = UrlFetchApp.fetch(url);
+    var info_txt = JSON.parse(response.getContentText());
+    var data = info_txt['feed']['entry'];
 
-    if (type == 1) {
-        color[0] = '#000000FF';
-        color[1] = '#FFFFFFFF';
-        url = 'https://s96116157.github.io/Lisa/Dark_001_1.jpg';
-    }
+    var color = ['#F9F3E2FF', '#594136FF'];
+    var url = 'https://s96116157.github.io/Lisa/' + data[type]['gsx$id']['$t'] + '.jpg';
+    var title = data[type]['gsx$title']['$t'];
+    var txt = data[type]['gsx$txt']['$t'];
 
     var txt = {
         "type": "flex",
-        "altText": "Have one's story",
+        "altText": "Have One's Story",
         "contents": {
             "type": "carousel",
             "contents": [
@@ -200,5 +211,59 @@ function get_story(type) {
             ]
         }
     };
+    return txt;
+}
+
+function get_card_bubble(url, data) {
+    url = 'https://s96116157.github.io/Lisa/' + url + '.jpg';
+    data = data.toString();
+    var txt = {
+        "type": "bubble",
+        "size": "micro",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "paddingAll": "0px",
+            "backgroundColor": "#A79486FF",
+            "contents": [
+                {
+                    "type": "image",
+                    "url": url,
+                    "size": "full",
+                    "aspectRatio": "40:55",
+                    "aspectMode": "cover"
+                },
+                {
+                    "type": "box",
+                    "layout": "vertical",
+                    "offsetBottom": "0px",
+                    "offsetStart": "0px",
+                    "offsetEnd": "0px",
+                    "paddingAll": "10px",
+                    "backgroundColor": "#00000070",
+                    "contents": [
+                        {
+                            "type": "box",
+                            "layout": "vertical",
+                            "height": "40px",
+                            "borderWidth": "1px",
+                            "borderColor": "#FFFFFFFF",
+                            "cornerRadius": "5px",
+                            "contents": [
+                                {
+                                    "type": "button",
+                                    "action": { "type": "postback", "label": "閱讀", "data": data },
+                                    "color": "#FFFFFF00",
+                                    "height": "sm",
+                                    "style": "primary",
+                                    "gravity": "bottom"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
     return txt;
 }

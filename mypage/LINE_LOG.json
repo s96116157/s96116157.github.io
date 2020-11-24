@@ -6,10 +6,10 @@
         "xmlns$openSearch": "http://a9.com/-/spec/opensearchrss/1.0/",
         "xmlns$gsx": "http://schemas.google.com/spreadsheets/2006/extended",
         "id": {
-            "$t": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values"
+            "$t": "https://spreadsheets.google.com/feeds/list/1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs/od6/public/values"
         },
         "updated": {
-            "$t": "2020-11-12T16:32:56.348Z"
+            "$t": "2020-11-24T05:12:54.231Z"
         },
         "category": [
             {
@@ -19,28 +19,28 @@
         ],
         "title": {
             "type": "text",
-            "$t": "sheet_1"
+            "$t": "Book"
         },
         "link": [
             {
                 "rel": "alternate",
                 "type": "application/atom+xml",
-                "href": "https://docs.google.com/spreadsheets/u/0/d/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/pubhtml"
+                "href": "https://docs.google.com/spreadsheets/u/0/d/1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs/pubhtml"
             },
             {
                 "rel": "http://schemas.google.com/g/2005#feed",
                 "type": "application/atom+xml",
-                "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values"
+                "href": "https://spreadsheets.google.com/feeds/list/1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs/od6/public/values"
             },
             {
                 "rel": "http://schemas.google.com/g/2005#post",
                 "type": "application/atom+xml",
-                "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values"
+                "href": "https://spreadsheets.google.com/feeds/list/1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs/od6/public/values"
             },
             {
                 "rel": "self",
                 "type": "application/atom+xml",
-                "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values?alt\u003djson"
+                "href": "https://spreadsheets.google.com/feeds/list/1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs/od6/public/values?alt\u003djson"
             }
         ],
         "author": [
@@ -54,7 +54,7 @@
             }
         ],
         "openSearch$totalResults": {
-            "$t": "7"
+            "$t": "1"
         },
         "openSearch$startIndex": {
             "$t": "1"
@@ -62,10 +62,10 @@
         "entry": [
             {
                 "id": {
-                    "$t": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/cokwr"
+                    "$t": "https://spreadsheets.google.com/feeds/list/1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs/od6/public/values/cokwr"
                 },
                 "updated": {
-                    "$t": "2020-11-12T16:32:56.348Z"
+                    "$t": "2020-11-24T05:12:54.231Z"
                 },
                 "category": [
                     {
@@ -75,255 +75,30 @@
                 ],
                 "title": {
                     "type": "text",
-                    "$t": "d_20200701"
+                    "$t": "Book_001_001"
                 },
                 "content": {
                     "type": "text",
-                    "$t": "info: \n延續昨天的能量，你依然陷在原地。\n\n是什麼樣的原因困住了你，就連你也開始忘記。\n\n也可能，心裡清楚但卻無法鼓起勇氣站起身前進。\n\n沒事的，牌卡要告訴你，現在該是那個最佳的動身時間。\n\n下一個旅程已然開始，這是一場朝聖之旅。\n\n要朝聖的，也許是你的夢想、你的目標。\n\n可能你會想著「我還欠缺許多條件、許多技能」。\n\n但並不是，反之你是已經達成一切條件，才會與此牌卡連結。\n這是一股暖暖的推力，它給予你支持，不催趕、不激進。\n\n無論你的下一步是大是小，我想傳達給你的訊息是「請即刻動起來」。\n\n活躍起來吧！\n\n在這漫長的人生中充滿了未知。\n\n給自己療癒、充電的時間已足夠，你的狀態也足以讓你運作。\n\n別再害怕，神聖的指引在前方等你。\n\n靜下心聆聽那個鐘聲，它會帶你走向正確的道路。, array: 184,339"
+                    "$t": "title: LET ME IN !, txt: 不知道怪獸吞下我的時候\\n\\n會不會噎到\\n\\n會不會有人用哈姆立克法\\n\\n把我救出來, array: 45"
                 },
                 "link": [
                     {
                         "rel": "self",
                         "type": "application/atom+xml",
-                        "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/cokwr"
+                        "href": "https://spreadsheets.google.com/feeds/list/1Dnn5iusu0Y8qinBLgn5xNptyFEG06ZkRlF4snbPSVzs/od6/public/values/cokwr"
                     }
                 ],
-                "gsx$dlink": {
-                    "$t": "d_20200701"
+                "gsx$id": {
+                    "$t": "Book_001_001"
                 },
-                "gsx$info": {
-                    "$t": "\n延續昨天的能量，你依然陷在原地。\n\n是什麼樣的原因困住了你，就連你也開始忘記。\n\n也可能，心裡清楚但卻無法鼓起勇氣站起身前進。\n\n沒事的，牌卡要告訴你，現在該是那個最佳的動身時間。\n\n下一個旅程已然開始，這是一場朝聖之旅。\n\n要朝聖的，也許是你的夢想、你的目標。\n\n可能你會想著「我還欠缺許多條件、許多技能」。\n\n但並不是，反之你是已經達成一切條件，才會與此牌卡連結。\n這是一股暖暖的推力，它給予你支持，不催趕、不激進。\n\n無論你的下一步是大是小，我想傳達給你的訊息是「請即刻動起來」。\n\n活躍起來吧！\n\n在這漫長的人生中充滿了未知。\n\n給自己療癒、充電的時間已足夠，你的狀態也足以讓你運作。\n\n別再害怕，神聖的指引在前方等你。\n\n靜下心聆聽那個鐘聲，它會帶你走向正確的道路。"
+                "gsx$title": {
+                    "$t": "LET ME IN !"
+                },
+                "gsx$txt": {
+                    "$t": "不知道怪獸吞下我的時候\\n\\n會不會噎到\\n\\n會不會有人用哈姆立克法\\n\\n把我救出來"
                 },
                 "gsx$array": {
-                    "$t": "184,339"
-                }
-            },
-            {
-                "id": {
-                    "$t": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/cpzh4"
-                },
-                "updated": {
-                    "$t": "2020-11-12T16:32:56.348Z"
-                },
-                "category": [
-                    {
-                        "scheme": "http://schemas.google.com/spreadsheets/2006",
-                        "term": "http://schemas.google.com/spreadsheets/2006#list"
-                    }
-                ],
-                "title": {
-                    "type": "text",
-                    "$t": "d_20200702"
-                },
-                "content": {
-                    "type": "text",
-                    "$t": "info: \n草原狼的到來，揭示著這場逆境已開始。\n\n人生課題隨著我們成長的階段，不斷變化。\n就像每一本書都有目錄一般，象徵著你此段的重點摘要。\n\n課題是一場餽贈、一份大禮。\n它有它存在的必要，在最巧妙的時間出現。\n當你勇敢面對之時，終能獲得。\n\n讓我們翻開書。\n現在，進入目前的章節。\n\n『你走進了一個森林裡，在此迷失、感到挫折。\n手上拿著許多工具，卻不知如何使用。\n\n你慌亂的拼湊著，就像一場解謎遊戲，企圖拼湊出可以帶你離開這裡的東西。\n\n但換著換著，發現自己用盡了所有的方式。\n至此，你無力地坐在地上，沮喪了起來。』\n\n親愛的朋友，請聽～\n是什麼讓你來到此？你是否還記得你的目的？\n\n未知讓你感到恐懼，但你沒發現的是，周遭蘊藏著許多事物，它們都是你的寶庫。\n\n森林是你的處境。\n手上的工具是你至今累積的知識與技能。\n\n在你坐下的腳邊有你需要的東西。\n它就在那，一步不離。\n而不遠的屋子裡，有在這裡居住的人們，他們很願意告訴你該如何往你想的方向去。\n但，你得先跨出一步。\n\n你去試過了嗎？\n\n這是一個逆境、一場考驗。\n當你越過它，回頭會發現，自己獲得了如此多寶貴的成長經驗。\n\n現在你只要靜下心來，側耳傾聽，嘗試摸索，進而改變。\n\n切記，請勿忽略那些被藏起來的惡意。\n不要誤判毒菇，以為是美味的食物。\n膚淺的事物，不值得你追隨。\n因為，有多少付出，才會有多少收穫。"
-                },
-                "link": [
-                    {
-                        "rel": "self",
-                        "type": "application/atom+xml",
-                        "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/cpzh4"
-                    }
-                ],
-                "gsx$dlink": {
-                    "$t": "d_20200702"
-                },
-                "gsx$info": {
-                    "$t": "\n草原狼的到來，揭示著這場逆境已開始。\n\n人生課題隨著我們成長的階段，不斷變化。\n就像每一本書都有目錄一般，象徵著你此段的重點摘要。\n\n課題是一場餽贈、一份大禮。\n它有它存在的必要，在最巧妙的時間出現。\n當你勇敢面對之時，終能獲得。\n\n讓我們翻開書。\n現在，進入目前的章節。\n\n『你走進了一個森林裡，在此迷失、感到挫折。\n手上拿著許多工具，卻不知如何使用。\n\n你慌亂的拼湊著，就像一場解謎遊戲，企圖拼湊出可以帶你離開這裡的東西。\n\n但換著換著，發現自己用盡了所有的方式。\n至此，你無力地坐在地上，沮喪了起來。』\n\n親愛的朋友，請聽～\n是什麼讓你來到此？你是否還記得你的目的？\n\n未知讓你感到恐懼，但你沒發現的是，周遭蘊藏著許多事物，它們都是你的寶庫。\n\n森林是你的處境。\n手上的工具是你至今累積的知識與技能。\n\n在你坐下的腳邊有你需要的東西。\n它就在那，一步不離。\n而不遠的屋子裡，有在這裡居住的人們，他們很願意告訴你該如何往你想的方向去。\n但，你得先跨出一步。\n\n你去試過了嗎？\n\n這是一個逆境、一場考驗。\n當你越過它，回頭會發現，自己獲得了如此多寶貴的成長經驗。\n\n現在你只要靜下心來，側耳傾聽，嘗試摸索，進而改變。\n\n切記，請勿忽略那些被藏起來的惡意。\n不要誤判毒菇，以為是美味的食物。\n膚淺的事物，不值得你追隨。\n因為，有多少付出，才會有多少收穫。"
-                },
-                "gsx$array": {
-                    "$t": ""
-                }
-            },
-            {
-                "id": {
-                    "$t": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/cre1l"
-                },
-                "updated": {
-                    "$t": "2020-11-12T16:32:56.348Z"
-                },
-                "category": [
-                    {
-                        "scheme": "http://schemas.google.com/spreadsheets/2006",
-                        "term": "http://schemas.google.com/spreadsheets/2006#list"
-                    }
-                ],
-                "title": {
-                    "type": "text",
-                    "$t": "d_20200703"
-                },
-                "content": {
-                    "type": "text",
-                    "$t": "info: \n你是否感受到周圍的變化？\n是否做出了一些改變，不管是行動上還是心念上。\n長久的努力終於開始開花結果，付出也即將有所反饋。\n從過去積累的能量促成了今天的局勢，讓自己進入了順流之中。\n\n你感覺豪不費力、豁然開朗。\n如果你計畫著什麼，那現在是最佳時刻。\n去行動，會事半功倍。\n\n如果現在才要開始計畫。\n那麼靈感會不斷湧現，你只需好好揮灑。\n\n帶著愛去感受當下吧！「相信」非常重要。\n不管你的信仰為何，只要相信生命本身，那麼一切都會到位。\n\n如果你即將迎來一些挑戰，便保持開放的心態去面對。\n不要讓自己躲起來，機會將會與你擦身而過。\n\n現在，仔細感覺你想做的事情、想說的話。\n不管什麼來到你面前，請順勢而動，切勿抗拒。\n享受此刻擁有的機會，它非常寶貴。"
-                },
-                "link": [
-                    {
-                        "rel": "self",
-                        "type": "application/atom+xml",
-                        "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/cre1l"
-                    }
-                ],
-                "gsx$dlink": {
-                    "$t": "d_20200703"
-                },
-                "gsx$info": {
-                    "$t": "\n你是否感受到周圍的變化？\n是否做出了一些改變，不管是行動上還是心念上。\n長久的努力終於開始開花結果，付出也即將有所反饋。\n從過去積累的能量促成了今天的局勢，讓自己進入了順流之中。\n\n你感覺豪不費力、豁然開朗。\n如果你計畫著什麼，那現在是最佳時刻。\n去行動，會事半功倍。\n\n如果現在才要開始計畫。\n那麼靈感會不斷湧現，你只需好好揮灑。\n\n帶著愛去感受當下吧！「相信」非常重要。\n不管你的信仰為何，只要相信生命本身，那麼一切都會到位。\n\n如果你即將迎來一些挑戰，便保持開放的心態去面對。\n不要讓自己躲起來，機會將會與你擦身而過。\n\n現在，仔細感覺你想做的事情、想說的話。\n不管什麼來到你面前，請順勢而動，切勿抗拒。\n享受此刻擁有的機會，它非常寶貴。"
-                },
-                "gsx$array": {
-                    "$t": ""
-                }
-            },
-            {
-                "id": {
-                    "$t": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/chk2m"
-                },
-                "updated": {
-                    "$t": "2020-11-12T16:32:56.348Z"
-                },
-                "category": [
-                    {
-                        "scheme": "http://schemas.google.com/spreadsheets/2006",
-                        "term": "http://schemas.google.com/spreadsheets/2006#list"
-                    }
-                ],
-                "title": {
-                    "type": "text",
-                    "$t": "d_20200704"
-                },
-                "content": {
-                    "type": "text",
-                    "$t": "info: \n你心中是否有確信的計畫或目標？\n如果有，就去執行吧！\n\n這是一個非常明確的指引。\n宇宙支持著你去做那些你認為該做的事，尤其是當出發點不為個人利益的時候。\n就像天降甘霖一般，把這些雨水當成灌溉，以成長茁壯。\n\n若你近期已開始你的計劃，那麼將會獲得不錯的發展。\n而周遭的人事物也會一起獲得這份禮物。\n\n並且，與周遭的人們互動時，直率的表達你的善意。\n不要將那些隱藏，不要將你的關心與在乎用其他方式展現。\n直接地說出口吧！\n「我很擔心你、我很想你、我很在乎你」\n真誠的互動將為你帶來很好的效果。\n\n你是否不善於這樣的表達方式呢?\n那麼這會是一個很好的機會。\n\n但要切記，不要將你的意圖強加於任何事物。\n以尊重為前提去表達，而不是告知。\n這也是愛最重要的一環，我們都是一個個體。\n\n有時他人看見的是更大的藍圖，而現在只是站在藍圖的一角，只是你看不見它。"
-                },
-                "link": [
-                    {
-                        "rel": "self",
-                        "type": "application/atom+xml",
-                        "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/chk2m"
-                    }
-                ],
-                "gsx$dlink": {
-                    "$t": "d_20200704"
-                },
-                "gsx$info": {
-                    "$t": "\n你心中是否有確信的計畫或目標？\n如果有，就去執行吧！\n\n這是一個非常明確的指引。\n宇宙支持著你去做那些你認為該做的事，尤其是當出發點不為個人利益的時候。\n就像天降甘霖一般，把這些雨水當成灌溉，以成長茁壯。\n\n若你近期已開始你的計劃，那麼將會獲得不錯的發展。\n而周遭的人事物也會一起獲得這份禮物。\n\n並且，與周遭的人們互動時，直率的表達你的善意。\n不要將那些隱藏，不要將你的關心與在乎用其他方式展現。\n直接地說出口吧！\n「我很擔心你、我很想你、我很在乎你」\n真誠的互動將為你帶來很好的效果。\n\n你是否不善於這樣的表達方式呢?\n那麼這會是一個很好的機會。\n\n但要切記，不要將你的意圖強加於任何事物。\n以尊重為前提去表達，而不是告知。\n這也是愛最重要的一環，我們都是一個個體。\n\n有時他人看見的是更大的藍圖，而現在只是站在藍圖的一角，只是你看不見它。"
-                },
-                "gsx$array": {
-                    "$t": ""
-                }
-            },
-            {
-                "id": {
-                    "$t": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/ciyn3"
-                },
-                "updated": {
-                    "$t": "2020-11-12T16:32:56.348Z"
-                },
-                "category": [
-                    {
-                        "scheme": "http://schemas.google.com/spreadsheets/2006",
-                        "term": "http://schemas.google.com/spreadsheets/2006#list"
-                    }
-                ],
-                "title": {
-                    "type": "text",
-                    "$t": "d_20200705"
-                },
-                "content": {
-                    "type": "text",
-                    "$t": "info: \n你正處在一個任務或計劃當中嗎？\n還是有難題與考驗正困擾著你？\n\n牌卡想提醒你，意圖因你的注意力而起。 \n若你感覺抗拒或分心，那將會加劇事情往你不想要的方向發展。\n\n此刻的你需要的是「專注」。\n專注聚焦那些正向的事物，去加速突破、加速達成。\n\n向周邊正向的夥伴們靠近吧～ \n靠近那些正向的能量，他們將會為你提供極大的助力。\n\n你只要在那當中專注於「如何解決問題」與「努力解決問題」之上。"
-                },
-                "link": [
-                    {
-                        "rel": "self",
-                        "type": "application/atom+xml",
-                        "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/ciyn3"
-                    }
-                ],
-                "gsx$dlink": {
-                    "$t": "d_20200705"
-                },
-                "gsx$info": {
-                    "$t": "\n你正處在一個任務或計劃當中嗎？\n還是有難題與考驗正困擾著你？\n\n牌卡想提醒你，意圖因你的注意力而起。 \n若你感覺抗拒或分心，那將會加劇事情往你不想要的方向發展。\n\n此刻的你需要的是「專注」。\n專注聚焦那些正向的事物，去加速突破、加速達成。\n\n向周邊正向的夥伴們靠近吧～ \n靠近那些正向的能量，他們將會為你提供極大的助力。\n\n你只要在那當中專注於「如何解決問題」與「努力解決問題」之上。"
-                },
-                "gsx$array": {
-                    "$t": ""
-                }
-            },
-            {
-                "id": {
-                    "$t": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/ckd7g"
-                },
-                "updated": {
-                    "$t": "2020-11-12T16:32:56.348Z"
-                },
-                "category": [
-                    {
-                        "scheme": "http://schemas.google.com/spreadsheets/2006",
-                        "term": "http://schemas.google.com/spreadsheets/2006#list"
-                    }
-                ],
-                "title": {
-                    "type": "text",
-                    "$t": "d_20200706"
-                },
-                "content": {
-                    "type": "text",
-                    "$t": "info: \n是時候開始一場內在探索了。\n你過度消耗了精神而覺得疲憊不堪，此刻是審視自己各個面向的時候。\n\n靜下心來，和自己對話。\n「我為什麼執著於這些事情？」\n「是不是陷入有毒的人際關係之中，耗盡了能量？」\n「我是否能找出根源，並帶著答案走入新的生活？」\n「我想要的，是怎麼樣的人生呢？」\n\n當你遇到挫折、失敗，或是感覺無法再努力時，試著問問自己，與靈魂對話。\n\n藥輪演釋著生命與自然的循環，在你靜下心來好好面對自己的時候，你將會得到回應。"
-                },
-                "link": [
-                    {
-                        "rel": "self",
-                        "type": "application/atom+xml",
-                        "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/ckd7g"
-                    }
-                ],
-                "gsx$dlink": {
-                    "$t": "d_20200706"
-                },
-                "gsx$info": {
-                    "$t": "\n是時候開始一場內在探索了。\n你過度消耗了精神而覺得疲憊不堪，此刻是審視自己各個面向的時候。\n\n靜下心來，和自己對話。\n「我為什麼執著於這些事情？」\n「是不是陷入有毒的人際關係之中，耗盡了能量？」\n「我是否能找出根源，並帶著答案走入新的生活？」\n「我想要的，是怎麼樣的人生呢？」\n\n當你遇到挫折、失敗，或是感覺無法再努力時，試著問問自己，與靈魂對話。\n\n藥輪演釋著生命與自然的循環，在你靜下心來好好面對自己的時候，你將會得到回應。"
-                },
-                "gsx$array": {
-                    "$t": ""
-                }
-            },
-            {
-                "id": {
-                    "$t": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/clrrx"
-                },
-                "updated": {
-                    "$t": "2020-11-12T16:32:56.348Z"
-                },
-                "category": [
-                    {
-                        "scheme": "http://schemas.google.com/spreadsheets/2006",
-                        "term": "http://schemas.google.com/spreadsheets/2006#list"
-                    }
-                ],
-                "title": {
-                    "type": "text",
-                    "$t": "d_20200707"
-                },
-                "content": {
-                    "type": "text",
-                    "$t": "info: \n你即將聽見一陣巨響。\n那指示著你關鍵時刻即將到來。\n請深吸一口氣，慢慢呼出，屏氣凝神做好起跑的準備。\n\n你正站在跑道的起始點，而時間倒數中。\n這是一個巨大、戲劇性的改變，是一個無法被影響的事件。\n\n聽到聲響的當下，你會本能的知曉這是正確的，它不受任何外力影響。\n\n你唯一能做的是，對遠方的終點抱持希望。\n如果你相信，那將成為你此後的信念，而你的生活將會有大躍進。\n\n人們往往對於未知感到恐懼。\n此刻若你需要生命的提點，它想說：「這是你的好機會」。\n\n要和那些同樣聽見聲響的人們一同奔跑。\n運用你的靈活與敏捷到達終點。\n\n現在請，做好準備！"
-                },
-                "link": [
-                    {
-                        "rel": "self",
-                        "type": "application/atom+xml",
-                        "href": "https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values/clrrx"
-                    }
-                ],
-                "gsx$dlink": {
-                    "$t": "d_20200707"
-                },
-                "gsx$info": {
-                    "$t": "\n你即將聽見一陣巨響。\n那指示著你關鍵時刻即將到來。\n請深吸一口氣，慢慢呼出，屏氣凝神做好起跑的準備。\n\n你正站在跑道的起始點，而時間倒數中。\n這是一個巨大、戲劇性的改變，是一個無法被影響的事件。\n\n聽到聲響的當下，你會本能的知曉這是正確的，它不受任何外力影響。\n\n你唯一能做的是，對遠方的終點抱持希望。\n如果你相信，那將成為你此後的信念，而你的生活將會有大躍進。\n\n人們往往對於未知感到恐懼。\n此刻若你需要生命的提點，它想說：「這是你的好機會」。\n\n要和那些同樣聽見聲響的人們一同奔跑。\n運用你的靈活與敏捷到達終點。\n\n現在請，做好準備！"
-                },
-                "gsx$array": {
-                    "$t": ""
+                    "$t": "45"
                 }
             }
         ]
