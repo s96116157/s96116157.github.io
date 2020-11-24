@@ -7,7 +7,7 @@ function doPost(e) {
 
     if (typeof replyToken === 'undefined') { return; }
 
-    console.log('============ 202011181550 ============');
+    console.log('============ 202011241200 ============');
     console.log(msg.events[0]);
 
     switch (userType) {
@@ -20,13 +20,21 @@ function doPost(e) {
         case 'message':
             userMessage = msg.events[0].message.text;
             switch (userMessage) {
+                case 'book':
+                    return_txt = get_story(0);
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    return;
                 case 'dark':
                     return_txt = get_story(1);
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     return;
-                case 'book':
-                    return_txt = get_story(0);
+                case 'Story':
+                    return;
+                case 'About':
+                    return_txt = get_follow_bubble();
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
+                    return;
+                default:
                     return;
             }
             return;
@@ -54,7 +62,7 @@ function sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, msg) {
 }
 
 function get_follow_bubble() {
-    var url = 'https://scontent.ftpe7-2.fna.fbcdn.net/v/t31.0-8/460837_281453208617694_470224812_o.jpg?_nc_cat=109&ccb=2&_nc_sid=de6eea&_nc_ohc=ajR8OvwytxIAX8tAg6b&_nc_ht=scontent.ftpe7-2.fna&oh=d3ab36cd41a7c2112157572bfe7c655f&oe=5FD94BE0';
+    var url = 'https://s96116157.github.io/Lisa/sali_boots.jpg';
     var txt = {
         "type": "flex",
         "altText": "about",
@@ -71,11 +79,11 @@ function get_follow_bubble() {
             "body": {
                 "type": "box",
                 "layout": "vertical",
-                "backgroundColor": "#535557FF",
+                "backgroundColor": "#75665FFF",
                 "contents": [
                     {
                         "type": "text",
-                        "text": "Hi. 我是 Clio",
+                        "text": "Ms. Sali & Mr. Boots",
                         "weight": "bold",
                         "size": "xl",
                         "color": "#FFFFFFFF",
@@ -83,7 +91,7 @@ function get_follow_bubble() {
                     },
                     {
                         "type": "text",
-                        "text": "很開心我們成為了好友！\n自然塔羅是以牌卡占卜和大家分享：人生哲學、心靈成長、運勢解析\n沒有個人占卜、收費服務\n除了塔羅和閒聊以外，偶爾會天降趣味小測驗，單純想和大家分享塔羅的有趣，一起開心互動。",
+                        "text": "嗨，很開心我們成為了好友。\n我們是廢物情侶\n他是廢物，我是情侶\n希望廢物星球可以帶給你們一點希望\n\n為了不讓全世界的人變成廢物\n我把所有的廢物能量聚集在一副眼鏡上面，然後我每天都帶著那副\n---「廢物眼鏡」---",
                         "size": "md",
                         "color": "#FFFFFFFF",
                         "wrap": true,
@@ -96,7 +104,7 @@ function get_follow_bubble() {
                 "layout": "vertical",
                 "flex": 0,
                 "spacing": "sm",
-                "backgroundColor": "#535557FF",
+                "backgroundColor": "#75665FFF",
                 "contents": [
                     {
                         "type": "filler"
@@ -115,6 +123,13 @@ function get_follow_bubble() {
         }
     };
     return txt;
+}
+
+function get_book_list() {
+    var url = 'https://spreadsheets.google.com/feeds/list/1sdoX-WjcqokHZPgVoVdixxF4HHp2GsnB_Ak0ImVXMpc/od6/public/values?alt=json';
+    var response = UrlFetchApp.fetch(url);
+    var info_txt = JSON.parse(response.getContentText());
+    var data = info_txt['feed']['entry'];
 }
 
 function get_story(type) {
