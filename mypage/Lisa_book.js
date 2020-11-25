@@ -84,13 +84,15 @@ function get_follow_bubble() {
                         "weight": "bold",
                         "size": "xl",
                         "color": "#FFFFFFFF",
+                        "align": "center",
                         "contents": []
                     },
                     {
                         "type": "text",
-                        "text": "嗨，很開心我們成為了好友。\n我們是廢物情侶\n他是廢物，我是情侶\n希望廢物星球可以帶給你們一點希望\n\n為了不讓全世界的人變成廢物\n我把所有的廢物能量聚集在一副眼鏡上面，然後我每天都帶著那副\n---「廢物眼鏡」---",
-                        "size": "md",
+                        "text": "\n嗨，我們是居住在廢物星球上的廢物情侶\n希望廢物星球可以帶給你們一些希望\n為了不讓全世界的人變成廢物\nSali 把所有的廢物能量聚集在一副眼鏡上\n而由 Boots 戴著那一副\n\n---「廢物眼鏡」---\n\n讓全世界的人不會因為廢物能量\n而變成廢物",
+                        "size": "sm",
                         "color": "#FFFFFFFF",
+                        "align": "center",
                         "wrap": true,
                         "contents": []
                     }
@@ -150,12 +152,21 @@ function get_story(type) {
     var info_txt = JSON.parse(response.getContentText());
     var data = info_txt['feed']['entry'];
 
-    var color = ['#F9F3E2FF', '#594136FF'];
-    var url = 'https://s96116157.github.io/Lisa/' + data[type]['gsx$id']['$t'] + '.jpg';
+    url = 'https://s96116157.github.io/Lisa/' + data[type]['gsx$id']['$t'] + '.jpg';
     var title = data[type]['gsx$title']['$t'];
     var txt = data[type]['gsx$txt']['$t'];
+    var array = data[type]['gsx$array']['$t'].split(",");
+    var len = array.length;
+    var x = 0;
+    console.log(txt.length);
 
-    var txt = {
+    if (len > 1) {
+        var t = txt;
+        txt = t.substr(x, parseInt(array[0]) - x + 1);
+        x = parseInt(array[0]) + 1;
+    };
+
+    var bubble = {
         "type": "flex",
         "altText": "Have One's Story",
         "contents": {
@@ -170,22 +181,21 @@ function get_story(type) {
                         "aspectRatio": "40:55",
                         "aspectMode": "cover"
                     }
-                },
-                {
+                }, {
                     "type": "bubble",
                     "direction": "ltr",
                     "header": {
                         "type": "box",
                         "layout": "vertical",
                         "flex": 0,
-                        "backgroundColor": color[0],
+                        "backgroundColor": "#F9F3E2FF",
                         "contents": [
                             {
                                 "type": "text",
                                 "text": title,
                                 "weight": "bold",
                                 "size": "xl",
-                                "color": color[1],
+                                "color": "#594136FF",
                                 "align": "center",
                                 "contents": []
                             }
@@ -194,13 +204,13 @@ function get_story(type) {
                     "body": {
                         "type": "box",
                         "layout": "vertical",
-                        "backgroundColor": color[0],
+                        "backgroundColor": "#F9F3E2FF",
                         "contents": [
                             {
                                 "type": "text",
                                 "text": txt,
                                 "size": "md",
-                                "color": color[1],
+                                "color": "#594136FF",
                                 "align": "center",
                                 "wrap": true,
                                 "contents": []
@@ -211,7 +221,16 @@ function get_story(type) {
             ]
         }
     };
-    return txt;
+
+    if (len > 1) {
+        for (var i = 1; i < len; i++) {
+            txt = t.substr(x, parseInt(array[i]) - x + 1);
+            x = parseInt(array[i]) + 1;
+            bubble["contents"]["contents"].push(get_story_bubble(txt));
+        }
+    };
+
+    return bubble;
 }
 
 function get_card_bubble(url, data) {
@@ -266,4 +285,27 @@ function get_card_bubble(url, data) {
         }
     }
     return txt;
+}
+
+function get_story_bubble(txt) {
+    var bubble = {
+        "type": "bubble",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "backgroundColor": "#F9F3E2FF",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": txt,
+                    "size": "md",
+                    "color": "#594136FF",
+                    "align": "center",
+                    "wrap": true,
+                    "contents": []
+                }
+            ]
+        }
+    }
+    return bubble;
 }
