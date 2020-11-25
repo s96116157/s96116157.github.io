@@ -39,7 +39,6 @@ function doPost(e) {
             return;
         default:
             return;
-
     }
 }
 
@@ -138,7 +137,7 @@ function get_book_list() {
     }
 
     for (var i = 0; i < len; i++) {
-        txt["contents"]["contents"].push(get_card_bubble(data[i]['gsx$id']['$t'], i));
+        txt["contents"]["contents"].push(get_card_bubble(data[i]['gsx$id']['$t'], i, data[i]['gsx$title']['$t']));
     }
 
     return txt;
@@ -155,16 +154,8 @@ function get_story(type) {
     url = 'https://s96116157.github.io/Lisa/' + data[type]['gsx$id']['$t'] + '.jpg';
     var title = data[type]['gsx$title']['$t'];
     var txt = data[type]['gsx$txt']['$t'];
-    var array = data[type]['gsx$array']['$t'].split(",");
+    var array = txt.split("+");
     var len = array.length;
-    var x = 0;
-    console.log(txt.length);
-
-    if (len > 1) {
-        var t = txt;
-        txt = t.substr(x, parseInt(array[0]) - x + 1);
-        x = parseInt(array[0]) + 1;
-    };
 
     var bubble = {
         "type": "flex",
@@ -208,8 +199,8 @@ function get_story(type) {
                         "contents": [
                             {
                                 "type": "text",
-                                "text": txt,
-                                "size": "md",
+                                "text": array[0],
+                                "size": "sm",
                                 "color": "#594136FF",
                                 "align": "center",
                                 "wrap": true,
@@ -224,16 +215,14 @@ function get_story(type) {
 
     if (len > 1) {
         for (var i = 1; i < len; i++) {
-            txt = t.substr(x, parseInt(array[i]) - x + 1);
-            x = parseInt(array[i]) + 1;
-            bubble["contents"]["contents"].push(get_story_bubble(txt));
+            bubble["contents"]["contents"].push(get_story_bubble(array[i]));
         }
     };
 
     return bubble;
 }
 
-function get_card_bubble(url, data) {
+function get_card_bubble(url, data, title) {
     url = 'https://s96116157.github.io/Lisa/' + url + '.jpg';
     data = data.toString();
     var txt = {
@@ -271,7 +260,7 @@ function get_card_bubble(url, data) {
                             "contents": [
                                 {
                                     "type": "button",
-                                    "action": { "type": "postback", "label": "閱讀", "data": data },
+                                    "action": { "type": "postback", "label": title, "data": data },
                                     "color": "#FFFFFF00",
                                     "height": "sm",
                                     "style": "primary",
@@ -298,7 +287,7 @@ function get_story_bubble(txt) {
                 {
                     "type": "text",
                     "text": txt,
-                    "size": "md",
+                    "size": "sm",
                     "color": "#594136FF",
                     "align": "center",
                     "wrap": true,

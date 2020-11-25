@@ -49,7 +49,7 @@ function doPost(e) {
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, speed_tarot_month());
                     return;
                 case 'm_':
-                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, '');
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, m_bubble_txt(x));
                     return;
             }
             return;
@@ -309,6 +309,105 @@ function bubble_txt(txt) {
                     "type": "text",
                     "text": txt,
                     "size": "md",
+                    "color": "#FFFFFFFF",
+                    "wrap": true,
+                    "contents": []
+                }
+            ]
+        }
+    }
+    return bubble;
+}
+
+function m_bubble_txt(type) {
+    type = parseInt(type);
+    var id = '1iUJW05PMXwUzPqiXnv_JTEmSc4QMvSx66tVUKrodttk';
+    var url = 'https://spreadsheets.google.com/feeds/list/' + id + '/od6/public/values?alt=json';
+    var response = UrlFetchApp.fetch(url);
+    var info_txt = JSON.parse(response.getContentText());
+    var data = info_txt['feed']['entry'];
+
+    url = 'https://s96116157.github.io/image/' + data[type]['gsx$mlink']['$t'] + '.jpg';
+    var txt = data[type]['gsx$info']['$t'];
+    var array = txt.split("+");
+    var len = array.length;
+
+    var bubble = {
+        "type": "flex",
+        "altText": "Have One's Month Tarot",
+        "contents": {
+            "type": "carousel",
+            "contents": [
+                {
+                    "type": "bubble",
+                    "hero": {
+                        "type": "image",
+                        "url": url,
+                        "size": "full",
+                        "aspectRatio": "4:3",
+                        "aspectMode": "cover"
+                    },
+                    "body": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "backgroundColor": "#A79486FF",
+                        "contents": [
+                            {
+                                "type": "text",
+                                "text": "\n每月運勢\n",
+                                "weight": "bold",
+                                "size": "xl",
+                                "color": "#FFFFFFFF",
+                                "align": "center",
+                                "contents": []
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "type": "box",
+                        "layout": "vertical",
+                        "flex": 0,
+                        "spacing": "sm",
+                        "backgroundColor": "#A79486FF",
+                        "contents": [
+                            {
+                                "type": "filler"
+                            },
+                            {
+                                "type": "text",
+                                "text": "輸入「塔羅」或點選下方\n「點我看更多功能」將會為您服務哦！",
+                                "size": "sm",
+                                "color": "#FFFFFFFF",
+                                "align": "center",
+                                "wrap": true,
+                                "contents": []
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    };
+
+    for (var i = 0; i < len; i++) {
+        bubble["contents"]["contents"].push(get_story_bubble(array[i]));
+    }
+
+    return bubble;
+}
+
+function get_story_bubble(txt) {
+    var bubble = {
+        "type": "bubble",
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "backgroundColor": "#A79486FF",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": txt,
+                    "size": "sm",
                     "color": "#FFFFFFFF",
                     "wrap": true,
                     "contents": []
