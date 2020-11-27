@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>抽獎轉盤</title>
+  <link rel="stylesheet" href="css/css.css" />
+  <link rel="stylesheet" href="css/icon.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div id="wheel">
+    <div id="prize-box">
+      <div class="prize" :class="{active : active === index}" :style="{ transform: transformHandler(index, 'prize') }"
+        v-for="(item, index) in dataCache[year]">
+        <div class="prize-content" :style="{ transform: transformHandler(index, 'content') }"
+          :class="{ small : dataCache[year].length > 10}">
+          <div class="prize-icon" v-if="year === '2017'">
+            <i class="material-icons">
+              {{ item.icon }}
+            </i>
+          </div>
+          <div class="prize-text">
+            {{ textOrNumber(item, 'prize') }}
+          </div>
+          <div class="prize-count">
+            {{ item.count }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="hand" @click="pressHandler()" :style="{transform: rotateHandler()}">
+      <button class="press">PRESS</button>
+    </div>
+    <div id="change-year">
+      <button class="years" @click="changeYear(item)" v-for="item in Object.keys(dataCache)">
+        {{ item }}
+      </button>
+      <button class="years refresh" @click="restart()">
+        <i class="material-icons">
+          refresh
+        </i>
+      </button>
+    </div>
+    <div id="well-done" v-if="active > -1">
+      <div class="text">
+        <p>WELL<br />DONE!</p>
+      </div>
+      <div class="get">
+        <p>YOUR GET A FREE...</p>
+        <p class="item">{{ textOrNumber(dataCache, 'well-done') }}!</p>
+      </div>
+      <div class="icon" v-for="index in 10">
+        <i class="material-icons">
+          {{ getIcon() }}
+        </i>
+      </div>
+    </div>
+  </div>
+  <script src="js/vue/2.6.10/vue.js"></script>
+  <script src="js/axios/0.19.0/axios.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
