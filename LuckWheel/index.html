@@ -13,6 +13,20 @@
 
 <body>
   <div id="wheel">
+    <div id="well-done" v-if="active > -1">
+      <div class="text">
+        <p>WELL<br />DONE!</p>
+      </div>
+      <div class="get">
+        <p>YOUR GET A FREE...</p>
+        <p class="item">{{ textOrNumber(dataCache, 'well-done') }}!</p>
+      </div>
+      <div class="icon" v-for="index in 10">
+        <i class="material-icons">
+          {{ getIcon() }}
+        </i>
+      </div>
+    </div>
     <div id="prize-box">
       <div class="prize" :class="{active : active === index}" :style="{ transform: transformHandler(index, 'prize') }"
         v-for="(item, index) in dataCache[year]">
@@ -45,20 +59,7 @@
         </i>
       </button>
     </div>
-    <div id="well-done" v-if="active > -1">
-      <div class="text">
-        <p>WELL<br />DONE!</p>
-      </div>
-      <div class="get">
-        <p>YOUR GET A FREE...</p>
-        <p class="item">{{ textOrNumber(dataCache, 'well-done') }}!</p>
-      </div>
-      <div class="icon" v-for="index in 10">
-        <i class="material-icons">
-          {{ getIcon() }}
-        </i>
-      </div>
-    </div>
+
   </div>
   <script src="js/vue/2.6.10/vue.js"></script>
   <script src="js/axios/0.19.0/axios.js"></script>
