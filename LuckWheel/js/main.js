@@ -81,13 +81,15 @@ let app = new Vue({
     },
     textOrNumber(item, location) {
       if (location === "prize") {
-        //return this.year === '2017' ? item.text : item.num
-        return item.text;
+        return this.year === "2017" ? item.text : item.num;
       }
       if (location === "well-done") {
+        return this.dataCache[this.year][this.active].text;
+        /*
         return this.year === "2017"
           ? this.dataCache[this.year][this.active].text
           : this.dataCache[this.year][this.active].num;
+        */
       }
     },
     changeYear(year) {
