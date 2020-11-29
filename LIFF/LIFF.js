@@ -1,42 +1,95 @@
-var liffID = '1655284249-Dl2J9P15';
+async function sendShare() {
+    var select = {
+        "type": "flex",
+        "altText": "Menu",
+        "contents": {
+            "type": "bubble",
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "paddingAll": "0px",
+                "backgroundColor": "#126E9DFF",
+                "contents": [
+                    {
+                        "type": "image",
+                        "url": "https://s96116157.github.io/LINEBot/ROBOT_002.jpg",
+                        "size": "full",
+                        "aspectRatio": "2:3",
+                        "aspectMode": "cover"
+                    },
+                    {
+                        "type": "image",
+                        "url": "https://s96116157.github.io/LINEBot/" + icon[0] + ".png",
+                        "size": "xs",
+                        "position": "absolute",
+                        "offsetTop": "25px",
+                        "offsetStart": "210px"
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "position": "absolute",
+                        "offsetBottom": "0px",
+                        "offsetStart": "0px",
+                        "offsetEnd": "0px",
+                        "paddingAll": "30px",
+                        "backgroundColor": "#00000050",
+                        "contents": []
+                    }
+                ]
+            }
+        }
+    }
 
-liff.init({
-    liffId: liffID
-}).then(function () {
-    console.log('LIFF init');
+    var menu = {
+        "type": "box",
+        "layout": "vertical",
+        "offsetBottom": "15px",
+        "contents": [
+            {
+                "type": "text",
+                "text": "請選擇您想要使用的功能",
+                "color": "#FFFFFF",
+                "align": "center",
+                "wrap": true,
+                "contents": []
+            }
+        ]
+    }
 
-    // 這邊開始寫使用其他功能
+    select['contents']['body']['contents'][2]['contents'].push(menu);
 
-}).catch(function (error) {
-    console.log(error);
-});
+    const result = await liff.shareTargetPicker([select])
+    if (result) {
+        alert(`[${result.status}] Message sent!`)
+    } else {
+        const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
 
-// 引用 LIFF SDK 的頁面，頁面中的 lang 值
-liff.getLanguage();
+        if (minorVer === undefined) {
+            alert('ShareTargetPicker was canceled in external browser')
+            return
+        }
 
-// LIFF SDK 的版本
-liff.getVersion();
+        if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
+            alert('ShareTargetPicker was canceled in LINE app')
+        }
+    }
+}
 
-// 回傳是否由 LINE App 存取
-liff.isInClient();
+function logOut() {
+    liff.logout()
+    window.location.reload()
+}
 
-// 使用者是否登入 LINE 帳號
-liff.isLoggedIn();
-
-// 回傳使用者作業系統：ios、android、web
-liff.getOS();
-
-// 使用者的 LINE 版本
-liff.getLineVersion();
-
-// 開啟連結
-liff.openWindow({
-    // uri：要開啟的網址
-    url: uri,
-
-    // external：
-    // 是否要用外部瀏覽器打開，這在 LINE APP 下開頁面時會比較有感
-    // 一般我們在 LINE 上開連結，都會是在 LINE 的框架下，external 設為 true，就可以直接用瀏覽器開啟而不是在 LINE 的框架下開啟
-    // 預設值是 false
-    external: true
-})
+async function main() {
+    await liff.init({ liffId: "1655284249-Dl2J9P15" })
+    if (liff.isLoggedIn()) {
+        document.getElementById("btnShare").style.display = "block"
+        if (!liff.isInClient()) {
+            document.getElementById("btnLogOut").style.display = "block"
+        }
+    } else {
+        document.getElementById("btnLogin").style.display = "block"
+    }
+}
+main()
