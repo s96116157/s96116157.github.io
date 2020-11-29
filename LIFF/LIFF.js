@@ -1,4 +1,5 @@
 async function sendShare() {
+    var icon = ['icon_face', 'icon_ararm', 'icon_eat'];
     var select = {
         "type": "flex",
         "altText": "Menu",
