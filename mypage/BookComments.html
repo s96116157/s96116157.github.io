@@ -20,16 +20,28 @@
                             <div class="media-body">
                                 <div class="card">
                                     <div class="card-body" style="background-color: rgb(240, 240, 240);">
-                                        <h5 class="mt-0">Media heading</h5>
+                                        <h5 class="mt-0">${item.user}</h5>
                                         <span style="font-family:Microsoft JhengHei;">${item.info}</span>
                                     </div>
                                 </div>
-                                <div class="media mt-1">
-                                    <img src="https://cdn.iconscout.com/icon/free/png-64/face-1659511-1410033.png">
-                                    <div class="card">
-                                        <div class="card-body" style="background-color: rgb(220, 236, 255);">
-                                            <h5 class="mt-0">Media heading</h5>
-                                            Cras sit amet nibh libero, in gravida nulla.
+                                <div>
+                                    <div v-if="item.re === ''"></div>
+                                    <div v-else class="media mt-1">
+                                        <img src="https://cdn.iconscout.com/icon/free/png-64/face-1659511-1410033.png">
+                                        <div class="card" style="width: 100%;">
+                                            <div class="card-body"
+                                                style="background-color: rgb(220, 236, 255); width: 100%;">
+                                                <div style="float:left;">
+                                                    <h5 class="mt-0">Mr.Boots</h5>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mt-0" style="text-align:right;">${item.time}</h6>
+                                                </div>
+                                                <div>
+                                                    <h6 style="font-family:Microsoft JhengHei;text-align:right;">
+                                                        ${item.re}</h6>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
