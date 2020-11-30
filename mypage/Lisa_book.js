@@ -4,6 +4,7 @@ function doPost(e) {
     var msg = JSON.parse(e.postData.contents);
     var userType = msg.events[0].type;
     var replyToken = msg.events[0].replyToken;
+    var userId = msg.events[0].source.userId;
 
     if (typeof replyToken === 'undefined') { return; }
 
@@ -29,6 +30,9 @@ function doPost(e) {
                     sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     return;
                 default:
+                    post_message(userMessage, userId);
+                    return_txt = get_comment();
+                    sendPushMessage(CHANNEL_ACCESS_TOKEN, replyToken, return_txt);
                     return;
             }
             return;
@@ -297,4 +301,105 @@ function get_story_bubble(txt) {
         }
     }
     return bubble;
+}
+
+function post_message(msg, id) {
+    var url =
+        "https://script.google.com/macros/s/AKfycbxyu-JHXikGYsUvRt4aMjv-UsPPjSr25tjX2X-qFcDtOCm8hN8/exec?" +
+        "info=" + msg + "&id=" + id;
+    var response = UrlFetchApp.fetch(url);
+    return response;
+}
+
+function get_comment() {
+    var t =
+        "\n感謝您留下了訊息，但非常抱歉\n" +
+        "訊息如果要傳達到廢物星球需要一段時間\n" +
+        "我們收到訊息後將會在下方的\n" +
+        "『訊息傳送門』中回覆您留下的訊息\n" +
+        "非常感謝您的等候。\n";
+    var url = 'https://s96116157.github.io/Lisa/sali_boots.jpg';
+    var txt = {
+        "type": "flex",
+        "altText": "about",
+        "contents": {
+            "type": "bubble",
+            "hero": {
+                "type": "image",
+                "url": url,
+                "size": "full",
+                "aspectRatio": "20:15",
+                "aspectMode": "cover",
+                "backgroundColor": "#FFFFFFFF"
+            },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "backgroundColor": "#75665FFF",
+                "contents": [
+                    {
+                        "type": "text",
+                        "text": "Ms. Sali & Mr. Boots",
+                        "weight": "bold",
+                        "size": "xl",
+                        "color": "#FFFFFFFF",
+                        "align": "center",
+                        "contents": []
+                    },
+                    {
+                        "type": "text",
+                        "text": t,
+                        "size": "sm",
+                        "color": "#FFFFFFFF",
+                        "align": "center",
+                        "wrap": true,
+                        "contents": []
+                    },
+                    {
+                        "type": "box",
+                        "layout": "vertical",
+                        "borderWidth": "1px",
+                        "borderColor": "#FFFFFFFF",
+                        "cornerRadius": "4px",
+                        "contents": [
+                            {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "訊息傳送門",
+                                    "uri": "https://s96116157.github.io/mypage/QRcode.html"
+                                },
+                                "color": "#FFFFFF00",
+                                "height": "sm",
+                                "style": "primary",
+                                "gravity": "bottom"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "footer": {
+                "type": "box",
+                "layout": "vertical",
+                "flex": 0,
+                "spacing": "sm",
+                "backgroundColor": "#75665FFF",
+                "contents": [
+                    {
+                        "type": "filler"
+                    },
+                    {
+                        "type": "text",
+                        "text": "「點我看更多功能」將會為您服務哦！",
+                        "size": "sm",
+                        "color": "#FFFFFFFF",
+                        "align": "center",
+                        "wrap": true,
+                        "contents": []
+                    }
+                ]
+            }
+        }
+    };
+    return txt;
 }

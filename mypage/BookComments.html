@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Comments</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class='wrapper' id="app">
+        <main class="main-content" style="background-color:white;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div v-for="item in list" class="media mt-3">
+                            <img src="https://cdn.iconscout.com/icon/free/png-64/face-1659511-1410033.png">
+                            <div class="media-body">
+                                <div class="card">
+                                    <div class="card-body" style="background-color: rgb(240, 240, 240);">
+                                        <h5 class="mt-0">Media heading</h5>
+                                        <span style="font-family:Microsoft JhengHei;">${item.info}</span>
+                                    </div>
+                                </div>
+                                <div class="media mt-1">
+                                    <img src="https://cdn.iconscout.com/icon/free/png-64/face-1659511-1410033.png">
+                                    <div class="card">
+                                        <div class="card-body" style="background-color: rgb(220, 236, 255);">
+                                            <h5 class="mt-0">Media heading</h5>
+                                            Cras sit amet nibh libero, in gravida nulla.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 20px;">
+                <h1></h1>
+            </div>
+        </main>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="BookComments.js"></script>
+</body>
+
+</html>
