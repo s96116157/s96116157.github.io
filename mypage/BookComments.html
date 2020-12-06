@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-sm">
                         <div v-for="item in list" class="media mt-3">
-                            <img src="https://cdn.iconscout.com/icon/free/png-64/face-1659511-1410033.png">
+                            <img v-bind:src="item.icon"/>
                             <div class="media-body">
                                 <div class="card">
                                     <div class="card-body" style="background-color: rgb(240, 240, 240);">
@@ -27,7 +27,7 @@
                                 <div>
                                     <div v-if="item.re === ''"></div>
                                     <div v-else class="media mt-1">
-                                        <img src="https://cdn.iconscout.com/icon/free/png-64/face-1659511-1410033.png">
+                                        <img src="https://s96116157.github.io/mypage/art/face_001.jpg">
                                         <div class="card" style="width: 100%;">
                                             <div class="card-body"
                                                 style="background-color: rgb(220, 236, 255); width: 100%;">

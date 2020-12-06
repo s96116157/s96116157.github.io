@@ -18,7 +18,8 @@ function get_info() {
                 user: data[i]['gsx$user']['$t'],
                 time: data[i]['gsx$time']['$t'],
                 info: data[i]['gsx$info']['$t'],
-                re: data[i]['gsx$return']['$t']
+                re: data[i]['gsx$return']['$t'],
+                icon: "https://s96116157.github.io/mypage/art/" + data[i]['gsx$icon']['$t'] + ".jpg",
             });
         }
     });
