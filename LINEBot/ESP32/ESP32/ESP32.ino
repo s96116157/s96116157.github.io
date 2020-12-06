@@ -129,7 +129,7 @@ void setup() {
   pAdvertising->setAdvertisementData(adDataLine);
   pAdvertising->setScanResponseData(adDataEmpty);
   pAdvertising->start();
-  delay(1000);
+  delay(500);
 }
 
 void loop()
@@ -137,5 +137,5 @@ void loop()
   isAdDataLine = !isAdDataLine;
   pAdvertising->setAdvertisementData(isAdDataLine ? adDataLine : adDataIbeacon);
   pAdvertising->start();
-  delay(1000);
+  delay(500);
 }
