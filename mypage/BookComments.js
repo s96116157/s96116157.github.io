@@ -19,7 +19,7 @@ function get_info() {
                 time: data[i]['gsx$time']['$t'],
                 info: data[i]['gsx$info']['$t'],
                 re: data[i]['gsx$return']['$t'],
-                icon: "https://s96116157.github.io/mypage/art/" + data[i]['gsx$icon']['$t'] + ".jpg",
+                icon: "https://s96116157.github.io/mypage/art/" + data[i]['gsx$icon']['$t'] + ".jpg"
             });
         }
     });
@@ -30,7 +30,8 @@ var vm = new Vue({
     el: '#app',
     delimiters: ['${', '}'],
     data: {
-        list: _list
+        list: _list,
+        info_txt: ''
     },
     methods: {
     }

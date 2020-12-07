@@ -16,30 +16,51 @@
                 <div class="row">
                     <div class="col-sm">
                         <div v-for="item in list" class="media mt-3">
-                            <img v-bind:src="item.icon"/>
+                            <img v-bind:src="item.icon" />
                             <div class="media-body">
                                 <div class="card">
                                     <div class="card-body" style="background-color: rgb(240, 240, 240);">
-                                        <h5 class="mt-0">${item.user}</h5>
-                                        <span style="font-family:Microsoft JhengHei;">${item.info}</span>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div style="float:left;">
+                                                    <h5>${item.user}</h5>
+                                                </div>
+                                                <div style="float:right; font-family:Microsoft JhengHei;">
+                                                    <span style="font-size:12px;">
+                                                        ${item.time}</span>
+                                                </div>
+                                            </div>
+                                            <div class="w-100"></div>
+                                            <div class="col">
+                                                <span style="font-family:Microsoft JhengHei;">${item.info}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div>
-                                    <div v-if="item.re === ''"></div>
+                                    <div v-if="item.re === ''" class="media mt-1">
+                                        <textarea placeholder="留言 50 字以內 測試中目前沒有效果" class="form-control" rows="3"
+                                            v-model="info_txt" maxlength="50"></textarea></div>
                                     <div v-else class="media mt-1">
                                         <img src="https://s96116157.github.io/mypage/art/face_001.jpg">
                                         <div class="card" style="width: 100%;">
                                             <div class="card-body"
                                                 style="background-color: rgb(220, 236, 255); width: 100%;">
-                                                <div style="float:left;">
-                                                    <h5 class="mt-0">Mr.Boots</h5>
-                                                </div>
-                                                <div>
-                                                    <h6 class="mt-0" style="text-align:right;">${item.time}</h6>
-                                                </div>
-                                                <div>
-                                                    <h6 style="font-family:Microsoft JhengHei;text-align:right;">
-                                                        ${item.re}</h6>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div style="float:left;">
+                                                            <h5>Mr.Boots</h5>
+                                                        </div>
+                                                        <div style="float:right; font-family:Microsoft JhengHei;">
+                                                            <span style="font-size:12px;">
+                                                                ${item.time}</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="w-100"></div>
+                                                    <div class="col">
+                                                        <h6 style="font-family:Microsoft JhengHei;text-align:right;">
+                                                            ${item.re}</h6>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
