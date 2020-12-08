@@ -73,9 +73,7 @@
                     <h1></h1>
                 </div>
             </div>
-
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
-
                 <div class="ml-auto">
                     <h6 style="color:white">${user_id}</h6>
                     <button type="button" class="btn btn-outline-light btn-sm" data-toggle="collapse"
@@ -84,15 +82,16 @@
             </nav>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom collapse" id="collapseExample">
                 <div style="width: 1000px;">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                        style="min-width: 100%"></textarea>
-
+                    <textarea style="min-width: 100%" class="form-control" rows="3" placeholder="留言 50 字以內"
+                        v-model="info_txt" maxlength="50"></textarea>
                     <div style="height: 10px;">
                         <h1></h1>
                     </div>
-                    <button type="button" class="btn btn-outline-light btn-sm">Send</button>
-                    <button type="button" class="btn btn-outline-light btn-sm" data-toggle="collapse"
-                        data-target="#collapseExample">Close</button>
+                    <div class="text-center mx-auto">
+                        <button type="button" class="btn btn-outline-light btn-sm" v-on:click="send_info">Send</button>
+                        <button type="button" class="btn btn-outline-light btn-sm" data-toggle="collapse"
+                            data-target="#collapseExample">Close</button>
+                    </div>
                 </div>
             </nav>
         </main>
