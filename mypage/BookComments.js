@@ -1,3 +1,8 @@
+async function main() {
+    await liff.init({ liffId: "1655284249-Dl2J9P15" });
+}
+main();
+
 var id = '1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48';
 var url = 'https://spreadsheets.google.com/feeds/list/' + id + '/od6/public/values?alt=json';
 var _list = [];
