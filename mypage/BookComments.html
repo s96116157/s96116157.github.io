@@ -19,7 +19,7 @@
                             <img v-bind:src="item.icon" />
                             <div class="media-body">
                                 <div class="card">
-                                    <div class="card-body" style="background-color: rgb(240, 240, 240);">
+                                    <div class="card-header">
                                         <div class="row">
                                             <div class="col">
                                                 <div style="float:left;">
@@ -36,11 +36,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div v-if="item.re === ''" class="card-body">
+                                        <a type="button" class="btn btn-outline-dark btn-sm float-right">comment</a>
+                                    </div>
                                 </div>
                                 <div>
                                     <div v-if="item.re === ''" class="media mt-1">
-                                        <textarea placeholder="留言 50 字以內 測試中目前沒有效果" class="form-control" rows="3"
-                                            v-model="info_txt" maxlength="50"></textarea></div>
+                                    </div>
                                     <div v-else class="media mt-1">
                                         <img src="https://s96116157.github.io/mypage/art/face_001.jpg">
                                         <div class="card" style="width: 100%;">
@@ -70,10 +72,17 @@
                         </div>
                     </div>
                 </div>
+                <div style="height: 20px;">
+                    <h1></h1>
+                </div>
             </div>
-            <div style="height: 20px;">
-                <h1></h1>
-            </div>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-light btn-sm">comment</button>
+                    </li>
+                </ul>
+            </nav>
         </main>
     </div>
     <script src="../js/jquery.min.js"></script>
