@@ -62,14 +62,14 @@ var vm = new Vue({
                     },
                 });
             } else {
-                if (_id == '') { this.alert_txt = '請輸入要留言的訊息'; }
+                this.alert_txt = '請輸入要留言的訊息';
                 $("#infoModal").modal();
             }
         }
     },
     mounted: function () {
-        if (_id == '') { this.alert_txt = '尚未登入 LINE'; }
-        $("#infoModal").modal();
+        //if (_id == '') { this.alert_txt = '尚未登入 LINE'; }
+        //$("#infoModal").modal();
         //this.user_id = get_line_id();
     }
 });
