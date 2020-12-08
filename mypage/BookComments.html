@@ -73,23 +73,27 @@
                     <h1></h1>
                 </div>
             </div>
+
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
-                <div class="collapse" id="collapseExample">
-                    <div class="card" style="width: 20rem;">
-                        <div class="card-body">請在下方留下您的訊息。</div>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        <button type="button" class="btn btn-outline btn-sm">Send</button>
-                    </div>
+
+                <div class="ml-auto">
+                    <button type="button" class="btn btn-outline-light btn-sm" data-toggle="collapse"
+                        data-target="#collapseExample">Comment</button>
+                </div>
+            </nav>
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom collapse" id="collapseExample">
+                <div style="width: 1000px;">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        style="min-width: 100%"></textarea>
+
                     <div style="height: 10px;">
                         <h1></h1>
                     </div>
+                    <button type="button" class="btn btn-outline-light btn-sm">Send</button>
+                    <button type="button" class="btn btn-outline-light btn-sm" data-toggle="collapse"
+                        data-target="#collapseExample">Close</button>
                 </div>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-outline-light btn-sm" data-toggle="collapse"
-                            data-target="#collapseExample">Comment</button>
-                    </li>
-                </ul>
             </nav>
         </main>
     </div>
