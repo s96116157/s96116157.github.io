@@ -1,7 +1,7 @@
 var id = '1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48';
 var url = 'https://spreadsheets.google.com/feeds/list/' + id + '/od6/public/values?alt=json';
 var _list = [];
-var L_id = '';
+var L_id = '尚未登入 LINE';
 
 async function main() {
     await liff.init({ liffId: "1655284249-Dl2J9P15" });
@@ -9,7 +9,7 @@ async function main() {
         console.log(liff.getContext().userId);
         L_id = liff.getContext().userId;
     } else {
-        liff.login();
+        //liff.login();
     };
     //window.location.reload()
 }
