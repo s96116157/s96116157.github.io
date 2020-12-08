@@ -11,6 +11,27 @@
 
 <body>
     <div class='wrapper' id="app">
+        <!-- Modal -->
+        <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">訊息</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ${alert_txt}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+
         <main class="main-content" style="background-color:white;">
             <div class="container">
                 <div class="row">
@@ -75,7 +96,6 @@
             </div>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
                 <div class="ml-auto">
-                    <h6 style="color:white">${user_id}</h6>
                     <button type="button" class="btn btn-outline-light btn-sm" data-toggle="collapse"
                         data-target="#collapseExample">Comment</button>
                 </div>

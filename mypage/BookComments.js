@@ -6,20 +6,13 @@ var _id = '';
 async function main() {
     await liff.init({ liffId: "1655284249-Dl2J9P15" });
     if (liff.isLoggedIn()) {
-        //console.log(liff.getContext().userId);
         _id = liff.getContext().userId;
-        alert("登入");
-        get_info();
-    } else {
-        _id = '尚未登入 LINE';
-        alert("尚未登入 LINE");
-        get_info();
-        //liff.login();
     };
     //window.location.reload()
 }
 
 main();
+get_info();
 
 async function get_line_id() {
     await liff.init({ liffId: "1655284249-Dl2J9P15" });
@@ -41,22 +34,21 @@ function get_info() {
             });
         }
     });
-    console.log(_list);
+    //console.log(_list);
 }
 
 var vm = new Vue({
     el: '#app',
     delimiters: ['${', '}'],
     data: {
-        user_id: 'TEST',
+        alert_txt: '',
         list: _list,
         info_txt: ''
     },
     methods: {
         send_info() {
-            console.log(_id);
             var url = 'https://script.google.com/macros/s/AKfycbxyu-JHXikGYsUvRt4aMjv-UsPPjSr25tjX2X-qFcDtOCm8hN8/exec';
-            if (_id != '尚未登入 LINE') {
+            if (this.info_txt != '') {
                 $.ajax({
                     url: url,
                     data: {
@@ -70,11 +62,14 @@ var vm = new Vue({
                     },
                 });
             } else {
-                alert("尚未登入 LINE");
+                if (_id == '') { this.alert_txt = '請輸入要留言的訊息'; }
+                $("#infoModal").modal();
             }
         }
     },
     mounted: function () {
-        this.user_id = get_line_id();
+        if (_id == '') { this.alert_txt = '尚未登入 LINE'; }
+        $("#infoModal").modal();
+        //this.user_id = get_line_id();
     }
 });
