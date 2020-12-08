@@ -19,7 +19,7 @@
                             <img v-bind:src="item.icon" />
                             <div class="media-body">
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-body" style="background-color: rgb(245, 245, 245); width: 100%;">
                                         <div class="row">
                                             <div class="col">
                                                 <div style="float:left;">
@@ -35,9 +35,6 @@
                                                 <span style="font-family:Microsoft JhengHei;">${item.info}</span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div v-if="item.re === ''" class="card-body">
-                                        <a type="button" class="btn btn-outline-dark btn-sm float-right">comment</a>
                                     </div>
                                 </div>
                                 <div>
@@ -77,9 +74,20 @@
                 </div>
             </div>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+                <div class="collapse" id="collapseExample">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">請在下方留下您的訊息。</div>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <button type="button" class="btn btn-outline btn-sm">Send</button>
+                    </div>
+                    <div style="height: 10px;">
+                        <h1></h1>
+                    </div>
+                </div>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <button type="button" class="btn btn-outline-light btn-sm">comment</button>
+                        <button type="button" class="btn btn-outline-light btn-sm" data-toggle="collapse"
+                            data-target="#collapseExample">Comment</button>
                     </li>
                 </ul>
             </nav>
