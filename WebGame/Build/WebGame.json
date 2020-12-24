@@ -1,7 +1,7 @@
 {
 "companyName": "DefaultCompany",
 "productName": "2020_GIFT",
-"productVersion": "0.1",
+"productVersion": "1.0",
 "dataUrl": "WebGame.data.unityweb",
 "wasmCodeUrl": "WebGame.wasm.code.unityweb",
 "wasmFrameworkUrl": "WebGame.wasm.framework.unityweb",
