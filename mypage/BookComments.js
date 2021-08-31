@@ -28,13 +28,15 @@ function get_info() {
         var len = data.length;
         for (i = len - 1; i >= 0; i--) {
             //var _info = 0 ? '' : data[i]['gsx$info']['$t'];
-            _list.push({
-                user: data[i][5],
-                time: data[i][3],
-                info: data[i][1],
-                re: data[i][2],
-                icon: "https://s96116157.github.io/mypage/art/" + data[i][6] + ".jpg"
-            });
+            if(i > 0){
+             _list.push({
+                 user: data[i][5],
+                 time: data[i][3],
+                 info: data[i][1],
+                 re: data[i][2],
+                 icon: "https://s96116157.github.io/mypage/art/" + data[i][6] + ".jpg"
+             });
+            }
         }
     });
     //console.log(_list);
