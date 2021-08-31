@@ -23,7 +23,8 @@ async function get_line_id() {
 
 function get_info() {
     fetch(url).then(res => res.json()).then(lessons => {
-        data = lessons['feed']['entry'];
+        data = lessons['feed']['values'];        
+        console.log(data);
         var len = data.length;
         for (i = len - 1; i >= 0; i--) {
             //var _info = 0 ? '' : data[i]['gsx$info']['$t'];
