@@ -1,5 +1,7 @@
 var id = '1calxFtlDzNrK78vFKpX3AygxbB1VTrfMb10qK8wIe48';
-var url = 'https://spreadsheets.google.com/feeds/list/' + id + '/od6/public/values?alt=json';
+var api_key = 'AIzaSyBL8N8KUvN2sEF49cKpZl6Z6wd1IUjfQU8';
+var tab_name = 'Sheet_001';
+var url = 'https://sheets.googleapis.com/v4/spreadsheets/' + id + '/values/' + tab_name + '?alt=json&key=' + api_key;
 var _list = [];
 var _id = '';
 
